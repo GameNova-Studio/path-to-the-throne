@@ -21,7 +21,7 @@ resources_spreadsheet_view/fold_docks=false
 
 [application]
 
-config/name="Gamelab GameKit"
+config/name="Path to the throne"
 run/main_scene="res://scenes/intro_scenes/made_in_godot.tscn"
 config/features=PackedStringArray("4.3")
 boot_splash/bg_color=Color(0, 0, 0, 1)
