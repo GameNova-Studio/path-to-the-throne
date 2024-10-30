@@ -71,7 +71,6 @@ func _enter_tree() -> void:
 	# Add button to the editor top bar, right before the run buttons
 	_add_top_bar_button()
 	_show_welcome_menu()
-	ensure_pot_generation(plugin_path)
 
 	var is_single_window_mode := editor_settings.get_setting(SINGLE_WINDOW_MODE_PROPERTY)
 	if not is_single_window_mode:
@@ -139,7 +138,6 @@ func _exit_tree() -> void:
 		tour.clean_up()
 
 	remove_translation_parser_plugin(translation_parser)
-	ensure_pot_generation(plugin_path, true)
 
 
 func _input(event: InputEvent) -> void:
