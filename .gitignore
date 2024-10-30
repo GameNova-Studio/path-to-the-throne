@@ -6,6 +6,6 @@ godot/.godot/
 .mono/
 data_*/
 *.translation
-godot/godot_tours.log
+godot/godot_tours.log*
 godot/addons/resources_spreadsheet_view/saved_state.json
 .DS_Store
