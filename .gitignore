@@ -9,3 +9,5 @@ data_*/
 godot/godot_tours.log*
 godot/addons/resources_spreadsheet_view/saved_state.json
 .DS_Store
+# Carpeta de pruebas
+/pruebas/
