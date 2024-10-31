@@ -16,7 +16,8 @@ enum Type {
 	Hongo,
 	Hueso,
 	Oveja,
-	Tronco
+	Tronco,
+	Papiro
 }
 
 ## Diccionario que relacionada cada objeto definido en [enum Item.Type] con
@@ -28,7 +29,8 @@ const textures: Dictionary = {
 	Type.Hongo: preload("res://entities/items/textures/mushroom.png"),
 	Type.Hueso: preload("res://entities/items/textures/bone.png"),
 	Type.Oveja: preload("res://entities/items/textures/sheep.tres"),
-	Type.Tronco: preload("res://entities/items/textures/log.png")
+	Type.Tronco: preload("res://entities/items/textures/log.png"),
+	Type.Papiro: preload("res://entities/items/textures/papyrus.png")
 }
 
 ## Dado un [enum Item.Type], devuelve la [Texture2D] correspondiente.
@@ -48,7 +50,8 @@ static func english_name_of(item_type: Type) -> String:
 		Type.Hongo: "Mushroom",
 		Type.Hueso: "Bone",
 		Type.Oveja: "Sheep",
-		Type.Tronco: "Log"
+		Type.Tronco: "Log",
+		Type.Papiro: "Papyrus"
 	}[item_type]
 
 ## Tipo del objeto. Debe ser uno de los definidos en [enum Item.Type]
