@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmalvfa0od3oh"]
+
+[ext_resource type="Script" path="res://entities/characters/npcs/npc.gd" id="1_gkgmn"]
+[ext_resource type="SpriteFrames" uid="uid://c1jpo50frrjlv" path="res://entities/characters/npcs/tntgoblin/animations/tntgoblin_blue.tres" id="2_0jb6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntg0w"]
+size = Vector2(27, 23)
+
+[node name="TNT" type="CharacterBody2D"]
+collision_layer = 6
+script = ExtResource("1_gkgmn")
+sprite_frames = ExtResource("2_0jb6e")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_0jb6e")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.436838
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_ntg0w")
