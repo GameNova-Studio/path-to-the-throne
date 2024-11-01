@@ -1,4 +1,5 @@
 @tool
+
 class_name Item extends Node
 ## Objeto que puede ser agregado al inventario del jugador
 
@@ -62,19 +63,23 @@ static func english_name_of(item_type: Type) -> String:
 			update_image()
 ## El nodo que muestra la imagen del objeto.
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
+@onready var collect=  $collecting
+var col=false
 func _ready():
 	## En ready, actualizamos el sprite.
 	update_image()
-
 ## Al interactuar con el jugador, el objeto se agrega al [code]Inventory[/code]
 ## y desaparece del nivel.[br][br]
 ## Este método es parte de la interfaz explicada en [InteractionRayCast].
 func interact_with(_player):
+	collect.play()
+	await collect.finished
 	## Agregamos el objeto al inventario
 	Inventory.add_item(type)
 	## Lo liberamos
 	self.queue_free()
+	
+	
 
 ## Devuelve el nombre de interacción que aparece cuando el jugador está
 ## cerca del objeto.[br][br] 

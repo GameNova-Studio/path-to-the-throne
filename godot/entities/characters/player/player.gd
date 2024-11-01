@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 ## Referencia al nodo que contiene las animaciones del personaje.
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
+@onready var ataque = $Ataque
 
 func _physics_process(_delta: float) -> void:
 	# Reinicia la velocidad en cada frame.
@@ -45,6 +46,7 @@ func _physics_process(_delta: float) -> void:
 # Función para entrar a la cueva. Reproduce la animación y espera a que termine.
 func open_door():
 	animated_sprite_2d.play("entrar")
+	ataque.play()
 	await animated_sprite_2d.animation_finished
 	
 # Comprueba si se está reproduciendo la animación de entrar a la cueva.

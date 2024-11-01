@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://bx2llcrqojvbu"]
+[gd_scene load_steps=16 format=4 uid="uid://bx2llcrqojvbu"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_e1nu0"]
 [ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_u3j2w"]
 [ext_resource type="PackedScene" uid="uid://ewf5cl8ycquv" path="res://entities/items/item.tscn" id="3_78505"]
+[ext_resource type="AudioStream" uid="uid://dao148d64nbip" path="res://assets/sounds/ataque_1.wav" id="3_jkfih"]
 [ext_resource type="PackedScene" uid="uid://mndsxueepdkr" path="res://entities/prefabs/npcs/talker/talker.tscn" id="3_xsoqf"]
 [ext_resource type="PackedScene" uid="uid://whfe031ftcip" path="res://entities/prefabs/npcs/fighter/fighter_with_reward.tscn" id="4_y1far"]
 [ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="5_ild2g"]
@@ -12,6 +13,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dnm04pi7yfmju" path="res://entities/characters/npcs/goblin/animations/goblin_red.tres" id="9_sihmq"]
 [ext_resource type="Resource" uid="uid://cgdm8w7oy2jyl" path="res://scenes/combat/in_combat_characters/fighter_characters/purple_archer.tres" id="9_yaql5"]
 [ext_resource type="SpriteFrames" uid="uid://bspa375ckrnmh" path="res://entities/characters/npcs/pawn/animations/pawn_yellow.tres" id="12_dquyo"]
+[ext_resource type="AudioStream" uid="uid://chsivyog7qask" path="res://assets/sounds/nivel_1.wav" id="13_6jdie"]
 [ext_resource type="AudioStream" uid="uid://8mahfo8ru4xc" path="res://assets/sounds/553821__ekvelika__chonology-of-love.wav" id="13_rpclr"]
 
 [node name="Laberinto" type="Node2D"]
@@ -49,6 +51,9 @@ zoom = Vector2(1.7, 1.7)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Ataque" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_jkfih")
 
 [node name="Items" type="Node2D" parent="."]
 z_index = 1
@@ -199,6 +204,10 @@ npc_name = "Sabrina the Carpenter"
 [node name="Cueva" parent="." instance=ExtResource("9_02ecn")]
 position = Vector2(1417, 1927)
 next_scene = "res://scenes/levels/story_mode/level_credits/level_credits.tscn"
+
+[node name="Entrar" type="AudioStreamPlayer2D" parent="Cueva"]
+stream = ExtResource("13_6jdie")
+pitch_scale = 0.58
 
 [node name="Talker" parent="." instance=ExtResource("3_xsoqf")]
 position = Vector2(1544, 2008)

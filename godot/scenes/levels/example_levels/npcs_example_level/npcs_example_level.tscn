@@ -1,0 +1,287 @@
+[gd_scene load_steps=24 format=4 uid="uid://fx44th5vp3d1"]
+
+[ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_isve7"]
+[ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_ijrjv"]
+[ext_resource type="PackedScene" uid="uid://mndsxueepdkr" path="res://entities/prefabs/npcs/talker/talker.tscn" id="3_b6nvd"]
+[ext_resource type="PackedScene" uid="uid://uw56if3krkna" path="res://ui/components/text_label.tscn" id="4_2v08c"]
+[ext_resource type="PackedScene" uid="uid://cdhdsgh775cfg" path="res://entities/prefabs/npcs/trader/trader.tscn" id="5_m0tec"]
+[ext_resource type="PackedScene" uid="uid://dbbea8dbdiuvr" path="res://entities/prefabs/npcs/fighter/fighter.tscn" id="6_nccwp"]
+[ext_resource type="Script" path="res://scenes/combat/minigames/minigame.gd" id="7_hg0gh"]
+[ext_resource type="Script" path="res://scenes/combat/minigames/pick_any_minigame_at_random.gd" id="8_ycom5"]
+[ext_resource type="Script" path="res://scenes/combat/in_combat_characters/fighter_character.gd" id="9_5as5x"]
+[ext_resource type="PackedScene" uid="uid://whfe031ftcip" path="res://entities/prefabs/npcs/fighter/fighter_with_reward.tscn" id="11_dycmd"]
+[ext_resource type="SpriteFrames" uid="uid://cd0nkwp6ueukh" path="res://entities/characters/npcs/archer/animations/archer_yellow.tres" id="12_u24ev"]
+[ext_resource type="PackedScene" uid="uid://ewf5cl8ycquv" path="res://entities/items/item.tscn" id="13_mi1a8"]
+[ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="14_2504i"]
+[ext_resource type="PackedScene" uid="uid://wb8ro614jtx3" path="res://entities/prefabs/npcs/guard/guard_that_uses_signal.tscn" id="15_dhd43"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nhf2x"]
+load_path = "res://.godot/imported/Carved_3Slides.png-029bf2596c8780ff4fa4fd14b4bc9f69.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3qiw0"]
+texture = SubResource("CompressedTexture2D_nhf2x")
+texture_margin_left = 32.0
+texture_margin_top = 20.0
+texture_margin_right = 32.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Resource" id="Resource_egswk"]
+script = ExtResource("8_ycom5")
+minigames_path = "res://scenes/combat/minigames"
+
+[sub_resource type="Resource" id="Resource_0yxbj"]
+resource_local_to_scene = true
+script = ExtResource("9_5as5x")
+hp = 200
+attack_power = 75
+_combat_sprite = "res://scenes/combat/in_combat_characters/combat_sprites/archer/archer_combat_sprite.tscn"
+minigames = Array[ExtResource("7_hg0gh")]([SubResource("Resource_egswk")])
+
+[sub_resource type="Resource" id="Resource_662wq"]
+script = ExtResource("8_ycom5")
+minigames_path = "res://scenes/combat/minigames"
+
+[sub_resource type="Resource" id="Resource_78gbq"]
+script = ExtResource("9_5as5x")
+hp = 200
+attack_power = 75
+_combat_sprite = "res://scenes/combat/in_combat_characters/combat_sprites/archer/red_archer_combat_sprite.tscn"
+minigames = Array[ExtResource("7_hg0gh")]([SubResource("Resource_662wq")])
+
+[sub_resource type="Animation" id="Animation_5yvhb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(233, 120)]
+}
+
+[sub_resource type="Animation" id="Animation_l0mci"]
+resource_name = "moverse"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(233, 120), Vector2(793, 84)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ro8x"]
+_data = {
+"RESET": SubResource("Animation_5yvhb"),
+"moverse": SubResource("Animation_l0mci")
+}
+
+[node name="ExampleLevel" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Foam" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAASAAoABwABAAEAAAASAAkABwABAAEAAAASAAgABwABAAEAAAASAAcABwABAAEAAAASAAYABwABAAEAAAASAAUABwABAAEAAAASAAQABwABAAEAAAASAAMABwABAAEAAAASAAIABwABAAEAAAASAAEABwABAAEAAAARAAoABwABAAEAAAARAAkABwABAAEAAAARAAgABwABAAEAAAARAAcABwABAAEAAAARAAYABwABAAEAAAARAAUABwABAAEAAAARAAQABwABAAEAAAARAAMABwABAAEAAAARAAIABwABAAEAAAARAAEABwABAAEAAAAQAAoABwABAAEAAAAQAAkABwABAAEAAAAQAAEABwABAAEAAAAPAAoABwABAAEAAAAPAAkABwABAAEAAAAPAAEABwABAAEAAAAOAAoABwABAAEAAAAOAAkABwABAAEAAAAOAAEABwABAAEAAAANAAoABwABAAEAAAANAAkABwABAAEAAAANAAEABwABAAEAAAAMAAoABwABAAEAAAAMAAkABwABAAEAAAAMAAcABwABAAEAAAAMAAYABwABAAEAAAAMAAUABwABAAEAAAAMAAQABwABAAEAAAAMAAMABwABAAEAAAAMAAIABwABAAEAAAAMAAEABwABAAEAAAALAAoABwABAAEAAAALAAkABwABAAEAAAALAAgABwABAAEAAAALAAcABwABAAEAAAALAAYABwABAAEAAAALAAUABwABAAEAAAALAAQABwABAAEAAAALAAMABwABAAEAAAALAAIABwABAAEAAAALAAEABwABAAEAAAAKAAoABwABAAEAAAAKAAkABwABAAEAAAAKAAgABwABAAEAAAAKAAcABwABAAEAAAAKAAYABwABAAEAAAAKAAUABwABAAEAAAAKAAQABwABAAEAAAAKAAMABwABAAEAAAAKAAIABwABAAEAAAAKAAEABwABAAEAAAAJAAoABwABAAEAAAAJAAkABwABAAEAAAAJAAgABwABAAEAAAAJAAcABwABAAEAAAAJAAYABwABAAEAAAAJAAUABwABAAEAAAAJAAQABwABAAEAAAAJAAMABwABAAEAAAAJAAIABwABAAEAAAAJAAEABwABAAEAAAAIAAoABwABAAEAAAAIAAkABwABAAEAAAAIAAgABwABAAEAAAAIAAcABwABAAEAAAAIAAYABwABAAEAAAAIAAUABwABAAEAAAAIAAQABwABAAEAAAAIAAMABwABAAEAAAAIAAIABwABAAEAAAAIAAEABwABAAEAAAAHAAoABwABAAEAAAAHAAkABwABAAEAAAAHAAgABwABAAEAAAAHAAcABwABAAEAAAAHAAYABwABAAEAAAAHAAUABwABAAEAAAAHAAQABwABAAEAAAAHAAMABwABAAEAAAAHAAIABwABAAEAAAAHAAEABwABAAEAAAAGAAoABwABAAEAAAAGAAkABwABAAEAAAAGAAgABwABAAEAAAAGAAcABwABAAEAAAAGAAYABwABAAEAAAAGAAUABwABAAEAAAAGAAQABwABAAEAAAAGAAMABwABAAEAAAAGAAIABwABAAEAAAAGAAEABwABAAEAAAAFAAoABwABAAEAAAAFAAkABwABAAEAAAAFAAgABwABAAEAAAAFAAcABwABAAEAAAAFAAYABwABAAEAAAAFAAUABwABAAEAAAAFAAQABwABAAEAAAAFAAMABwABAAEAAAAFAAIABwABAAEAAAAFAAEABwABAAEAAAAEAAoABwABAAEAAAAEAAkABwABAAEAAAAEAAgABwABAAEAAAAEAAcABwABAAEAAAAEAAYABwABAAEAAAAEAAUABwABAAEAAAAEAAQABwABAAEAAAAEAAMABwABAAEAAAAEAAIABwABAAEAAAAEAAEABwABAAEAAAADAAoABwABAAEAAAADAAkABwABAAEAAAADAAgABwABAAEAAAADAAcABwABAAEAAAADAAYABwABAAEAAAADAAUABwABAAEAAAADAAQABwABAAEAAAADAAMABwABAAEAAAADAAIABwABAAEAAAADAAEABwABAAEAAAACAAoABwABAAEAAAACAAkABwABAAEAAAACAAgABwABAAEAAAACAAcABwABAAEAAAACAAYABwABAAEAAAACAAUABwABAAEAAAACAAQABwABAAEAAAACAAMABwABAAEAAAACAAIABwABAAEAAAACAAEABwABAAEAAAABAAkABwABAAEAAAABAAgABwABAAEAAAABAAcABwABAAEAAAABAAYABwABAAEAAAABAAUABwABAAEAAAABAAQABwABAAEAAAABAAMABwABAAEAAAABAAIABwABAAEAAAAAAAIABwAAAAEAAAACAAAABwABAAAAAAAAAAMABwABAAMAAQAAAAQABwABAAEAAAAAAAUABwABAAEAAAAAAAYABwABAAEAAAAAAAcABwABAAMAAwAAAAgABwAAAAEAAAAAAAkABwAAAAEAAAACAAsABwABAAIAAAADAAAABwABAAAAAAADAAsABwABAAIAAAAEAAAABwABAAAAAAAEAAsABwABAAIAAAAFAAAABwABAAAAAAAFAAsABwABAAIAAAAGAAAABwABAAAAAAAGAAsABwABAAIAAAAHAAAABwABAAAAAAAHAAsABwABAAIAAAAIAAAABwABAAAAAAAIAAsABwABAAIAAAAJAAAABwABAAAAAAAJAAsABwABAAIAAAAKAAAABwABAAAAAAAKAAsABwABAAIAAAALAAAABwABAAAAAAALAAsABwABAAIAAAAMAAAABwABAAAAAAAMAAsABwABAAIAAAANAAAABwABAAAAAAANAAsABwABAAIAAAAOAAAABwABAAAAAAAOAAsABwABAAIAAAAPAAAABwABAAAAAAAPAAsABwABAAIAAAAQAAAABwABAAAAAAAQAAsABwABAAIAAAARAAAABwABAAAAAAARAAsABwABAAIAAAASAAAABwABAAAAAAASAAsABwABAAIAAAATAAEABwACAAEAAAATAAIABwACAAEAAAATAAMABwACAAEAAAATAAQABwACAAEAAAATAAUABwACAAEAAAATAAYABwACAAEAAAATAAcABwACAAEAAAATAAgABwACAAEAAAATAAkABwACAAEAAAATAAoABwACAAEAAAANAAMABwABAAMAAgANAAQABwACAAEAAAANAAUABwACAAEAAAANAAYABwACAAEAAAANAAcABwABAAMAAAAMAAgABwABAAMAAQANAAgABwABAAEAAAAOAAgABwABAAEAAAAQAAgABwABAAEAAAAQAAYABwABAAEAAAAOAAcABwABAAAAAAAPAAgABwABAAEAAAAPAAcABwABAAMAAQAQAAcABwABAAEAAAAPAAYABwAAAAEAAAAQAAUABwABAAEAAAAPAAUABwAAAAEAAAAQAAQABwABAAEAAAAPAAQABwAAAAEAAAAQAAMABwABAAEAAAAPAAMABwABAAMAAwAQAAIABwABAAMAAAAPAAIABwABAAEAAAAOAAIABwABAAEAAAAOAAMABwABAAIAAAANAAIABwABAAEAAAD//wQABwAAAAEAAAD//wUABwAAAAEAAAD//wYABwAAAAEAAAABAAEABwABAAMAAQABAAoABwABAAMAAwA=")
+tile_set = ExtResource("1_isve7")
+
+[node name="Floor" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAATAAsAAwAAAAAAAAATAAoAAwAAAAAAAAATAAkAAwAAAAAAAAATAAgAAwAAAAAAAAATAAcAAwAAAAAAAAATAAYAAwAAAAAAAAATAAUAAwAAAAAAAAATAAQAAwAAAAAAAAATAAMAAwAAAAAAAAATAAIAAwAAAAAAAAATAAEAAwAAAAAAAAATAAAAAwAAAAAAAAASAAsAAwAAAAAAAAASAAoAAQALAAMAAAASAAkAAQALAAIAAAASAAgAAQALAAIAAAASAAcAAQALAAIAAAASAAYAAQALAAIAAAASAAUAAQALAAIAAAASAAQAAQALAAIAAAASAAMAAQALAAIAAAASAAIAAQALAAIAAAASAAEAAQALAAAAAAASAAAAAwAAAAAAAAARAAsAAwAAAAAAAAARAAoAAQAJAAMAAAARAAkAAQAJAAIAAAARAAgAAQAJAAIAAAARAAcAAQAJAAIAAAARAAYAAQAJAAIAAAARAAUAAQAJAAIAAAARAAQAAQAJAAIAAAARAAMAAQAJAAIAAAARAAIAAQAJAAIAAAARAAEAAQAKAAAAAAARAAAAAwAAAAAAAAAQAAsAAwAAAAAAAAAQAAoAAQAJAAMAAAAQAAkAAQAJAAIAAAAQAAgAAQAFAAEAAAAQAAcAAQAIAAEAAAAQAAYAAQAIAAEAAAAQAAUAAQAIAAEAAAAQAAQAAQAIAAEAAAAQAAMAAQAIAAEAAAAQAAIAAQAFAAIAAAAQAAEAAQAKAAAAAAAQAAAAAwAAAAAAAAAPAAsAAwAAAAAAAAAPAAoAAQAJAAMAAAAPAAkAAQAJAAIAAAAPAAgAAQAKAAAAAAAPAAcAAwAAAAAAAAAPAAYAAwAAAAAAAAAPAAUAAwAAAAAAAAAPAAQAAwAAAAAAAAAPAAMAAwAAAAAAAAAPAAIAAQAJAAMAAAAPAAEAAQAKAAAAAAAPAAAAAwAAAAAAAAAOAAsAAwAAAAAAAAAOAAoAAQAJAAMAAAAOAAkAAQAJAAIAAAAOAAgAAQAKAAAAAAAOAAcAAwAAAAAAAAAOAAYAAwAAAAAAAAAOAAUAAwAAAAAAAAAOAAQAAwAAAAAAAAAOAAMAAwAAAAAAAAAOAAIAAQAJAAMAAAAOAAEAAQAKAAAAAAAOAAAAAwAAAAAAAAANAAsAAwAAAAAAAAANAAoAAQAJAAMAAAANAAkAAQAJAAIAAAANAAgAAQAKAAAAAAANAAcAAwAAAAAAAAANAAYAAwAAAAAAAAANAAUAAwAAAAAAAAANAAQAAwAAAAAAAAANAAMAAwAAAAAAAAANAAIAAQAJAAMAAAANAAEAAQAKAAAAAAANAAAAAwAAAAAAAAAMAAsAAwAAAAAAAAAMAAoAAQAJAAMAAAAMAAkAAQAJAAIAAAAMAAgAAQAGAAEAAAAMAAcAAQALAAIAAAAMAAYAAQALAAIAAAAMAAUAAQALAAIAAAAMAAQAAQALAAIAAAAMAAMAAQALAAIAAAAMAAIAAQAGAAIAAAAMAAEAAQAKAAAAAAAMAAAAAwAAAAAAAAALAAsAAwAAAAAAAAALAAoAAQAJAAMAAAALAAkAAQAJAAIAAAALAAgAAQAJAAIAAAALAAcAAQAJAAIAAAALAAYAAQAJAAIAAAALAAUAAQAJAAIAAAALAAQAAQAJAAIAAAALAAMAAQAJAAIAAAALAAIAAQAJAAIAAAALAAEAAQAKAAAAAAALAAAAAwAAAAAAAAAKAAsAAwAAAAAAAAAKAAoAAQAJAAMAAAAKAAkAAQAJAAIAAAAKAAgAAQAJAAIAAAAKAAcAAQAJAAIAAAAKAAYAAQAJAAIAAAAKAAUAAQAJAAIAAAAKAAQAAQAJAAIAAAAKAAMAAQAJAAIAAAAKAAIAAQAJAAIAAAAKAAEAAQAKAAAAAAAKAAAAAwAAAAAAAAAJAAsAAwAAAAAAAAAJAAoAAQAJAAMAAAAJAAkAAQAJAAIAAAAJAAgAAQAJAAIAAAAJAAcAAQAJAAIAAAAJAAYAAQAJAAIAAAAJAAUAAQAJAAIAAAAJAAQAAQAJAAIAAAAJAAMAAQAJAAIAAAAJAAIAAQAJAAIAAAAJAAAAAwAAAAAAAAAIAAsAAwAAAAAAAAAIAAoAAQAJAAMAAAAIAAkAAQAJAAIAAAAIAAgAAQAJAAIAAAAIAAcAAQAJAAIAAAAIAAYAAQAJAAIAAAAIAAUAAQAJAAIAAAAIAAQAAQAJAAIAAAAIAAMAAQAJAAIAAAAIAAIAAQAJAAIAAAAIAAAAAwAAAAAAAAAHAAsAAwAAAAAAAAAHAAoAAQAJAAMAAAAHAAkAAQAJAAIAAAAHAAgAAQAJAAIAAAAHAAcAAQAJAAIAAAAHAAYAAQAJAAIAAAAHAAUAAQAJAAIAAAAHAAQAAQAJAAIAAAAHAAMAAQAJAAIAAAAHAAIAAQAJAAIAAAAHAAAAAwAAAAAAAAAGAAsAAwAAAAAAAAAGAAoAAQAJAAMAAAAGAAkAAQAJAAIAAAAGAAgAAQAJAAIAAAAGAAcAAQAJAAIAAAAGAAYAAQAJAAIAAAAGAAUAAQAJAAIAAAAGAAQAAQAJAAIAAAAGAAMAAQAJAAIAAAAGAAIAAQAJAAIAAAAGAAAAAwAAAAAAAAAFAAsAAwAAAAAAAAAFAAoAAQAJAAMAAAAFAAkAAQAJAAIAAAAFAAgAAQAJAAIAAAAFAAcAAQAJAAIAAAAFAAYAAQAJAAIAAAAFAAUAAQAJAAIAAAAFAAQAAQAJAAIAAAAFAAMAAQAJAAIAAAAFAAIAAQAJAAIAAAAFAAAAAwAAAAAAAAAEAAsAAwAAAAAAAAAEAAoAAQAJAAMAAAAEAAkAAQAJAAIAAAAEAAgAAQAJAAIAAAAEAAcAAQAJAAIAAAAEAAYAAQAJAAIAAAAEAAUAAQAJAAIAAAAEAAQAAQAJAAIAAAAEAAMAAQAJAAIAAAAEAAIAAQAJAAIAAAAEAAEAAQAKAAAAAAAEAAAAAwAAAAAAAAADAAsAAwAAAAAAAAADAAoAAQAJAAMAAAADAAkAAQAJAAIAAAADAAgAAQAJAAIAAAADAAcAAQAJAAIAAAADAAYAAQAJAAIAAAADAAUAAQAJAAIAAAADAAQAAQAJAAIAAAADAAMAAQAJAAIAAAADAAIAAQAJAAIAAAADAAEAAQAKAAAAAAADAAAAAwAAAAAAAAACAAsAAwAAAAAAAAACAAoAAQAIAAMAAAACAAkAAQAFAAIAAAACAAgAAQAJAAIAAAACAAcAAQAJAAIAAAACAAYAAQAJAAIAAAACAAUAAQAJAAIAAAACAAQAAQAJAAIAAAACAAMAAQAJAAIAAAACAAIAAQAFAAEAAAACAAEAAQAIAAAAAAACAAAAAwAAAAAAAAABAAsAAwAAAAAAAAABAAkAAQAIAAMAAAABAAgAAQAIAAEAAAABAAcAAQAIAAEAAAABAAYAAQAFAAIAAAABAAUAAQAJAAIAAAABAAQAAQAFAAEAAAABAAMAAQAIAAEAAAABAAIAAQAIAAAAAAABAAAAAwAAAAAAAAAAAAsAAwAAAAAAAAAAAAoAAwAAAAAAAAAAAAkAAwAAAAAAAAAAAAgAAwAAAAAAAAAAAAcAAwAAAAAAAAAAAAYAAQAIAAMAAAAAAAUAAQAIAAEAAAAAAAQAAQAIAAAAAAAAAAMAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAEAAwAAAAAAAAAAAAAAAwAAAAAAAAAFAAEAAQAKAAAAAAAGAAEAAQAKAAAAAAAHAAEAAQAKAAAAAAAIAAEAAQAKAAAAAAAJAAEAAQAKAAAAAAABAAoAAwAAAAAAAAABAAEAAwAAAAAAAAD//wAAAwAAAAAAAAD//wEAAwAAAAAAAAD//wIAAwAAAAAAAAD//wMAAwAAAAAAAAD//wQAAwAAAAAAAAD//wUAAwAAAAAAAAD//wYAAwAAAAAAAAD//wkAAwAAAAAAAAD//woAAwAAAAAAAAD//wsAAwAAAAAAAAD//wgAAwAAAAAAAAD//wcAAwAAAAAAAAA=")
+tile_set = ExtResource("1_isve7")
+
+[node name="Player" parent="." instance=ExtResource("2_ijrjv")]
+z_index = 1
+position = Vector2(351, 315)
+
+[node name="Talker" parent="." instance=ExtResource("3_b6nvd")]
+position = Vector2(162, 589)
+
+[node name="TextLabel" parent="Talker" instance=ExtResource("4_2v08c")]
+offset_left = -149.0
+offset_top = 23.0
+offset_right = 62.0
+offset_bottom = 89.0
+text = "te habla"
+
+[node name="Trader" parent="." instance=ExtResource("5_m0tec")]
+position = Vector2(518, 642)
+
+[node name="TextLabel" parent="Trader" instance=ExtResource("4_2v08c")]
+offset_left = -136.0
+offset_top = 21.0
+offset_right = 81.0
+offset_bottom = 99.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Te cambia 1
+calabaza x 1 hueso"
+
+[node name="Trader2" parent="." instance=ExtResource("5_m0tec")]
+position = Vector2(613, 608)
+item_i_give = 3
+item_i_want = 2
+
+[node name="TextLabel" parent="Trader2" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -119.0
+offset_top = -81.0
+offset_right = 128.0
+offset_bottom = -3.0
+theme_override_font_sizes/normal_font_size = 15
+text = "Te cambia 1
+hongo x dinero"
+
+[node name="Fighter" parent="." instance=ExtResource("6_nccwp")]
+position = Vector2(796, 572)
+in_combat_character = SubResource("Resource_0yxbj")
+
+[node name="TextLabel2" parent="Fighter" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -124.0
+offset_top = 32.0
+offset_right = 79.0
+offset_bottom = 91.0
+theme_override_font_sizes/normal_font_size = 15
+text = "Combate"
+
+[node name="Fighter2" parent="." instance=ExtResource("11_dycmd")]
+position = Vector2(949, 582)
+in_combat_character = SubResource("Resource_78gbq")
+
+[node name="TextLabel" parent="Fighter2" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -67.0
+offset_top = 22.0
+offset_right = 98.0
+offset_bottom = 119.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Combate con
+recompensa"
+
+[node name="Talker3" parent="." instance=ExtResource("3_b6nvd")]
+position = Vector2(252, 473)
+line = "Soy un NPC que habla"
+npc_name = "Juan"
+sprite_frames = ExtResource("12_u24ev")
+
+[node name="TextLabel" parent="Talker3" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -69.0
+offset_top = 33.0
+offset_right = 84.0
+offset_bottom = 92.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Te habla"
+
+[node name="Trader3" parent="." instance=ExtResource("5_m0tec")]
+position = Vector2(424, 526)
+item_i_give = 6
+amount_i_give = 5
+item_i_want = 2
+amount_i_want = 2
+
+[node name="TextLabel" parent="Trader3" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -89.0
+offset_top = 13.0
+offset_right = 76.0
+offset_bottom = 110.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Te cambia 5 tronco
+x 2 dinero"
+
+[node name="Item" parent="." instance=ExtResource("13_mi1a8")]
+position = Vector2(129, 357)
+
+[node name="Item2" parent="." instance=ExtResource("13_mi1a8")]
+position = Vector2(109, 446)
+type = 2
+
+[node name="Item3" parent="." instance=ExtResource("13_mi1a8")]
+position = Vector2(46, 277)
+type = 2
+
+[node name="Item4" parent="." instance=ExtResource("13_mi1a8")]
+position = Vector2(336, 379)
+type = 2
+
+[node name="Guard" parent="." instance=ExtResource("14_2504i")]
+position = Vector2(619, 335)
+item_i_need = 2
+
+[node name="TextLabel" parent="Guard" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -121.0
+offset_top = 18.0
+offset_right = 118.0
+offset_bottom = 115.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Guardia que se mueve
+hacia arriba si el das dinero"
+
+[node name="Guard2" parent="." instance=ExtResource("14_2504i")]
+position = Vector2(1121, 288)
+item_i_need = 2
+direction_i_move_to = 1
+
+[node name="TextLabel" parent="Guard2" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -121.0
+offset_top = 18.0
+offset_right = 118.0
+offset_bottom = 115.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Guardia que se mueve
+hacia abajo si el das dinero"
+
+[node name="Guard3" parent="." instance=ExtResource("14_2504i")]
+position = Vector2(859, 89)
+item_i_need = 2
+direction_i_move_to = 3
+
+[node name="TextLabel" parent="Guard3" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -121.0
+offset_top = 18.0
+offset_right = 118.0
+offset_bottom = 115.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Guardia que se mueve
+hacia el costado si el das dinero"
+
+[node name="Guard4" parent="." instance=ExtResource("15_dhd43")]
+position = Vector2(233, 120)
+item_i_need = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Guard4"]
+libraries = {
+"": SubResource("AnimationLibrary_3ro8x")
+}
+
+[node name="TextLabel" parent="Guard4" instance=ExtResource("4_2v08c")]
+z_index = -1
+offset_left = -116.0
+offset_top = 30.0
+offset_right = 123.0
+offset_bottom = 127.0
+theme_override_font_sizes/normal_font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_3qiw0")
+text = "Guardia que ejecuta
+un animation player si
+le das dinero"
+
+[connection signal="received_item" from="Guard4" to="Guard4/AnimationPlayer" method="play" binds= ["moverse"]]

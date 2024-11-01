@@ -1,9 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ewf5cl8ycquv"]
+[gd_scene load_steps=5 format=3 uid="uid://ewf5cl8ycquv"]
 
 [ext_resource type="Script" path="res://entities/items/item.gd" id="1_oxhqq"]
 [ext_resource type="Texture2D" uid="uid://bvbhchxyunk26" path="res://entities/items/textures/mushroom.png" id="2_jvb0w"]
-
-
+[ext_resource type="AudioStream" uid="uid://jo7kka6s1f6c" path="res://assets/sounds/711129__xiko__retro-collection-3.wav" id="3_ujhic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psoqa"]
 radius = 16.0312
@@ -21,3 +20,6 @@ texture = ExtResource("2_jvb0w")
 position = Vector2(1.5, 6)
 rotation = 1.57941
 shape = SubResource("CircleShape2D_psoqa")
+
+[node name="collecting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ujhic")
