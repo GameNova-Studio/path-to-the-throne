@@ -3,6 +3,8 @@ class_name CombatSprite extends CanvasItem
 signal hit_landed
 
 @onready var animation_player = $AnimationPlayer
+@onready var ataque_sonido: AudioStreamPlayer2D = $AtaqueSonido
+
 @export var attack_animation_names: Array[String] = []
 @export var heal_animation_names: Array[String] = []
 @export var hurt_animation_names: Array[String] = []
@@ -10,6 +12,7 @@ signal hit_landed
 
 func land_hit() -> void:
 	hit_landed.emit()
+	$AtaqueSonido.play()
 
 
 func play_attack() -> void:

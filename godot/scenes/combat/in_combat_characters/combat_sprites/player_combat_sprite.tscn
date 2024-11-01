@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://cl0w0m24diim5"]
+[gd_scene load_steps=26 format=3 uid="uid://cl0w0m24diim5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cs48ij7e2fsy7" path="res://entities/characters/player/player_sprite_frames.tres" id="1_8tn2u"]
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="2_6qtlk"]
 [ext_resource type="PackedScene" uid="uid://df46gwu1em2ut" path="res://scenes/combat/in_combat_characters/combat_sprite_target.tscn" id="2_lpixj"]
 [ext_resource type="Texture2D" uid="uid://b3pmtodft1dlv" path="res://assets/Tiny Swords/Effects/Explosion/Explosions.png" id="3_8rmwg"]
+[ext_resource type="AudioStream" uid="uid://bse6d7qv6pksi" path="res://assets/sounds/ataque_1.wav" id="5_fi4mw"]
 
 [sub_resource type="Animation" id="Animation_p023x"]
 length = 0.001
@@ -414,3 +415,6 @@ process_material = SubResource("ParticleProcessMaterial_gf812")
 texture = SubResource("GradientTexture2D_vth63")
 one_shot = true
 explosiveness = 0.2
+
+[node name="AtaqueSonido" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_fi4mw")
