@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dd6b0hmw15amr"]
+[gd_scene load_steps=43 format=3 uid="uid://dd6b0hmw15amr"]
 
 [ext_resource type="Texture2D" uid="uid://32emst0ctttf" path="res://entities/characters/player/Warrior_Blue.png" id="1_nw63t"]
 [ext_resource type="Script" path="res://entities/characters/player/player.gd" id="1_y6xbq"]
@@ -259,6 +259,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tw8vh"]
 size = Vector2(42, 30)
 
+[sub_resource type="Gradient" id="Gradient_1kcvp"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 2147483650
 floor_snap_length = 0.0
@@ -299,3 +302,16 @@ script = ExtResource("5_58wdf")
 [node name="InteractionRayCast" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_kh0st")]
 position = Vector2(1, 23)
 player = NodePath("..")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2(0, 32)
+emitting = false
+amount = 20
+direction = Vector2(0, -1)
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+scale_amount_min = 7.0
+scale_amount_max = 7.0
+color_ramp = SubResource("Gradient_1kcvp")
