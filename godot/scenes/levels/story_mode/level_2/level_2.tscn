@@ -198,6 +198,10 @@ stream = ExtResource("3_26k1m")
 [node name="DoorFromPreviousLevel" parent="." instance=ExtResource("3_hjwvc")]
 position = Vector2(100, 92)
 
+[node name="Entrar" type="AudioStreamPlayer2D" parent="DoorFromPreviousLevel"]
+stream = ExtResource("4_3gq7j")
+pitch_scale = 0.58
+
 [node name="DoorToNextlevel" parent="." instance=ExtResource("3_hjwvc")]
 position = Vector2(1518, 608)
 next_scene = "res://scenes/levels/story_mode/level_3/level_3.tscn"
