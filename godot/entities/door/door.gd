@@ -10,7 +10,9 @@ func interact_with(player):
 		# Espera a que el cuerpo del personaje termine de entrar a la cueva.
 		await player.open_door() 
 		# Reproduce la animación de closed (se destruye la cueva)
+		$Entrar.play()
 		animated_sprite_2d.play("closed")
+
 		# Inicia el temporizador para esperar un tiempo antes de cambiar de escena.
 		tiempo.start()
 		# Espera a que el temporizador se termine.

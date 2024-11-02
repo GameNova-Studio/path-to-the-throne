@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://d0hbgem7rmn11"]
+[gd_scene load_steps=18 format=4 uid="uid://d0hbgem7rmn11"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_u35a0"]
 [ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_ves3c"]
 [ext_resource type="PackedScene" uid="uid://b6j76ro0xvs0g" path="res://entities/door/door.tscn" id="3_htqlv"]
+[ext_resource type="AudioStream" uid="uid://dao148d64nbip" path="res://assets/sounds/ataque_1.wav" id="3_q2p1p"]
+[ext_resource type="AudioStream" uid="uid://chsivyog7qask" path="res://assets/sounds/nivel_1.wav" id="4_fkqxx"]
 [ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="4_x2ek1"]
 [ext_resource type="Texture2D" uid="uid://7qjypsgo6fld" path="res://assets/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="5_4108x"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="6_uda2g"]
@@ -66,9 +68,16 @@ position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
+[node name="Ataque" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_q2p1p")
+
 [node name="Cueva" parent="." instance=ExtResource("3_htqlv")]
 position = Vector2(1597, 386)
 next_scene = "res://scenes/levels/story_mode/level_2/level_2.tscn"
+
+[node name="Entrar" type="AudioStreamPlayer2D" parent="Cueva"]
+stream = ExtResource("4_fkqxx")
+pitch_scale = 0.58
 
 [node name="StoneWithoutSword" type="Area2D" parent="."]
 position = Vector2(278, 209)

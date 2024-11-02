@@ -1,8 +1,10 @@
-[gd_scene load_steps=33 format=4 uid="uid://dh2pepouljua5"]
+[gd_scene load_steps=35 format=4 uid="uid://dh2pepouljua5"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_jhks0"]
 [ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_1tixn"]
+[ext_resource type="AudioStream" uid="uid://dao148d64nbip" path="res://assets/sounds/ataque_1.wav" id="3_26k1m"]
 [ext_resource type="PackedScene" uid="uid://b6j76ro0xvs0g" path="res://entities/door/door.tscn" id="3_hjwvc"]
+[ext_resource type="AudioStream" uid="uid://chsivyog7qask" path="res://assets/sounds/nivel_1.wav" id="4_3gq7j"]
 [ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="4_3y6pl"]
 [ext_resource type="PackedScene" uid="uid://d12lxbfnq18eh" path="res://entities/prefabs/npcs/gifter/gifter.tscn" id="4_3ybj8"]
 [ext_resource type="Script" path="res://scenes/levels/story_mode/level_2/cook.gd" id="5_ayos1"]
@@ -190,12 +192,23 @@ drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.1
 
+[node name="Ataque" type="AudioStreamPlayer2D" parent="Player"]
+stream = ExtResource("3_26k1m")
+
 [node name="DoorFromPreviousLevel" parent="." instance=ExtResource("3_hjwvc")]
 position = Vector2(100, 92)
+
+[node name="Entrar" type="AudioStreamPlayer2D" parent="DoorFromPreviousLevel"]
+stream = ExtResource("4_3gq7j")
+pitch_scale = 0.58
 
 [node name="DoorToNextlevel" parent="." instance=ExtResource("3_hjwvc")]
 position = Vector2(1518, 608)
 next_scene = "res://scenes/levels/story_mode/level_3/level_3.tscn"
+
+[node name="Entrar" type="AudioStreamPlayer2D" parent="DoorToNextlevel"]
+stream = ExtResource("4_3gq7j")
+pitch_scale = 0.58
 
 [node name="Characters" type="Node2D" parent="."]
 y_sort_enabled = true

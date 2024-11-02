@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cl0w0m24diim5"]
+[gd_scene load_steps=27 format=3 uid="uid://cl0w0m24diim5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cs48ij7e2fsy7" path="res://entities/characters/player/player_sprite_frames.tres" id="1_8tn2u"]
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="2_6qtlk"]
-[ext_resource type="PackedScene" uid="uid://df46gwu1em2ut" path="res://scenes/combat/in_combat_characters/combat_sprite_target.tscn" id="2_lpixj"]
 [ext_resource type="Texture2D" uid="uid://b3pmtodft1dlv" path="res://assets/Tiny Swords/Effects/Explosion/Explosions.png" id="3_8rmwg"]
+[ext_resource type="AudioStream" uid="uid://sg5atxja6iie" path="res://assets/sounds/apple_bite_1.wav" id="5_ns6bs"]
+[ext_resource type="AudioStream" uid="uid://e5bkk4ajnhqn" path="res://assets/sounds/heal_1.wav" id="5_q5jrm"]
+[ext_resource type="AudioStream" uid="uid://dao148d64nbip" path="res://assets/sounds/ataque_1.wav" id="5_q7cvt"]
 
 [sub_resource type="Animation" id="Animation_p023x"]
 length = 0.001
@@ -378,8 +380,6 @@ libraries = {
 "": SubResource("AnimationLibrary_lx16q")
 }
 
-[node name="Target" parent="." instance=ExtResource("2_lpixj")]
-
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)
 sprite_frames = ExtResource("1_8tn2u")
@@ -414,3 +414,12 @@ process_material = SubResource("ParticleProcessMaterial_gf812")
 texture = SubResource("GradientTexture2D_vth63")
 one_shot = true
 explosiveness = 0.2
+
+[node name="golpe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q7cvt")
+
+[node name="heal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_q5jrm")
+
+[node name="chomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ns6bs")

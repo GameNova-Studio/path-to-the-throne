@@ -10,15 +10,15 @@ signal hit_landed
 
 func land_hit() -> void:
 	hit_landed.emit()
-
-
+	$golpe.play()
+	
 func play_attack() -> void:
 	await play_one_of(attack_animation_names)
 
-
 func play_heal() -> void:
+	$chomp.play()
 	await play_one_of(heal_animation_names)
-
+	$heal.play()
 
 func play_hurt() -> void:
 	await play_one_of(hurt_animation_names)
@@ -33,7 +33,6 @@ func play_one_of(animation_names) -> void:
 
 	if(animation in animation_player.get_animation_list()):
 		animation_player.play(animation)
-
 		await animation_player.animation_finished
 	else:
 		await get_tree().process_frame
