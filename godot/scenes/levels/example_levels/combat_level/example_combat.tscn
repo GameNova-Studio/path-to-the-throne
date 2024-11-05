@@ -14,7 +14,7 @@ minigames_path = "res://scenes/combat/minigames"
 [sub_resource type="Resource" id="Resource_r3om4"]
 resource_local_to_scene = true
 script = ExtResource("6_5vw4v")
-hp = 40
+hp = 50
 attack_power = 100
 _combat_sprite = "res://scenes/combat/in_combat_characters/combat_sprites/pawn/red_pawn_combat_sprite.tscn"
 minigames = Array[ExtResource("4_pa27c")]([SubResource("Resource_ne68g")])

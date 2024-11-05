@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://fx44th5vp3d1"]
+[gd_scene load_steps=24 format=4 uid="uid://fx44th5vp3d1"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_isve7"]
 [ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_ijrjv"]
@@ -26,6 +26,18 @@ texture_margin_right = 32.0
 texture_margin_bottom = 20.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
+
+[sub_resource type="Resource" id="Resource_egswk"]
+script = ExtResource("8_ycom5")
+minigames_path = "res://scenes/combat/minigames"
+
+[sub_resource type="Resource" id="Resource_regf6"]
+resource_local_to_scene = true
+script = ExtResource("9_5as5x")
+hp = 200
+attack_power = 75
+_combat_sprite = "res://scenes/combat/in_combat_characters/combat_sprites/archer/archer_combat_sprite.tscn"
+minigames = Array[ExtResource("7_hg0gh")]([SubResource("Resource_egswk")])
 
 [sub_resource type="Resource" id="Resource_662wq"]
 script = ExtResource("8_ycom5")
@@ -91,6 +103,8 @@ position = Vector2(351, 315)
 
 [node name="Talker" parent="." instance=ExtResource("3_b6nvd")]
 position = Vector2(162, 589)
+line = "Buen Dia"
+npc_name = "Carlos"
 
 [node name="TextLabel" parent="Talker" instance=ExtResource("4_2v08c")]
 offset_left = -149.0
@@ -101,6 +115,8 @@ text = "te habla"
 
 [node name="Trader" parent="." instance=ExtResource("5_m0tec")]
 position = Vector2(518, 642)
+item_i_give = 6
+item_i_want = 5
 
 [node name="TextLabel" parent="Trader" instance=ExtResource("4_2v08c")]
 offset_left = -136.0
@@ -129,6 +145,7 @@ hongo x dinero"
 
 [node name="Fighter" parent="." instance=ExtResource("6_nccwp")]
 position = Vector2(796, 572)
+in_combat_character = SubResource("Resource_regf6")
 
 [node name="TextLabel2" parent="Fighter" instance=ExtResource("4_2v08c")]
 z_index = -1
@@ -190,6 +207,7 @@ x 2 dinero"
 
 [node name="Item" parent="." instance=ExtResource("13_mi1a8")]
 position = Vector2(129, 357)
+type = 4
 
 [node name="Item2" parent="." instance=ExtResource("13_mi1a8")]
 position = Vector2(109, 446)

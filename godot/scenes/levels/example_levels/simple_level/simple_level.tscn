@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=4 uid="uid://cgkpdncey46ho"]
+[gd_scene load_steps=6 format=4 uid="uid://cgkpdncey46ho"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_1vgw8"]
 [ext_resource type="PackedScene" uid="uid://dd6b0hmw15amr" path="res://entities/characters/player/player.tscn" id="2_ijsjt"]
+[ext_resource type="PackedScene" uid="uid://mndsxueepdkr" path="res://entities/prefabs/npcs/talker/talker.tscn" id="3_ddpim"]
+[ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="4_yqxeu"]
+[ext_resource type="PackedScene" uid="uid://cdhdsgh775cfg" path="res://entities/prefabs/npcs/trader/trader.tscn" id="5_y753r"]
 
 [node name="SimpleLevel" type="Node2D"]
 
@@ -20,3 +23,15 @@ position = Vector2(505, 360)
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Talker" parent="." instance=ExtResource("3_ddpim")]
+position = Vector2(537, 553)
+
+[node name="Guard" parent="." instance=ExtResource("4_yqxeu")]
+position = Vector2(251, 346)
+
+[node name="Talker2" parent="." instance=ExtResource("3_ddpim")]
+position = Vector2(228, 529)
+
+[node name="Trader" parent="." instance=ExtResource("5_y753r")]
+position = Vector2(367, 207)
