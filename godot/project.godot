@@ -22,8 +22,11 @@ resources_spreadsheet_view/fold_docks=false
 [application]
 
 config/name="Path to the throne"
+config/name_localized={
+"es": "El camino al trono"
+}
 run/main_scene="res://scenes/intro_scenes/made_in_godot.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://game_logo.png"

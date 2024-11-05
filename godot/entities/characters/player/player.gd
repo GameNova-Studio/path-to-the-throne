@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 ## Velocidad de movimiento del personaje.
-@export_range(10, 1000, 10) var SPEED = 300.0
+@export_range(10, 1000, 10) var SPEED = 700.0
 
 ## Referencia al nodo que contiene las animaciones del personaje.
 @onready var animated_sprite_2d: AnimatedSprite2D = %AnimatedSprite2D
