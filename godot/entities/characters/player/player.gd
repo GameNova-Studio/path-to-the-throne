@@ -65,6 +65,8 @@ func _physics_process(_delta: float) -> void:
 # Función para entrar a la cueva. Reproduce la animación y espera a que termine.
 func open_door():
 	animated_sprite_2d.play("entrar")
+	#Reproduce el sonido del personaje moviendo su espada.
+	$golpe.play()
 	await animated_sprite_2d.animation_finished
 	
 # Comprueba si se está reproduciendo la animación de entrar a la cueva.

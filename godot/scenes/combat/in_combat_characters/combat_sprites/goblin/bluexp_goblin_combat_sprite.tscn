@@ -1,11 +1,11 @@
-[gd_scene load_steps=32 format=3 uid="uid://bxw3rgkmwmo38"]
+[gd_scene load_steps=33 format=3 uid="uid://bxw3rgkmwmo38"]
 
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="1_soad6"]
 [ext_resource type="PackedScene" uid="uid://df46gwu1em2ut" path="res://scenes/combat/in_combat_characters/combat_sprite_target.tscn" id="2_vxjwr"]
 [ext_resource type="SpriteFrames" uid="uid://cqg38l52hwj05" path="res://entities/characters/npcs/goblin/animations/goblin_blue.tres" id="3_0yvw5"]
 [ext_resource type="Texture2D" uid="uid://b3pmtodft1dlv" path="res://assets/Tiny Swords/Effects/Explosion/Explosions.png" id="4_be8f8"]
 [ext_resource type="Texture2D" uid="uid://fivr03wkvo0r" path="res://assets/Tiny Swords/Effects/Fire/Fire.png" id="5_wtiuo"]
-
+[ext_resource type="AudioStream" uid="uid://buhlhv4igiqru" path="res://assets/sounds/hacha_1.wav" id="6_o0cg6"]
 
 [sub_resource type="Animation" id="Animation_dxs7e"]
 length = 0.001
@@ -386,3 +386,6 @@ position = Vector2(702, 21)
 sprite_frames = SubResource("SpriteFrames_k2ix1")
 autoplay = "default"
 frame_progress = 0.467537
+
+[node name="golpe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_o0cg6")

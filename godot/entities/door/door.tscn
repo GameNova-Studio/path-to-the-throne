@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6j76ro0xvs0g"]
+[gd_scene load_steps=12 format=3 uid="uid://b6j76ro0xvs0g"]
 
 [ext_resource type="Script" path="res://entities/door/door.gd" id="1_u0q7f"]
 [ext_resource type="Texture2D" uid="uid://duvfdfjey3dn5" path="res://entities/door/images/GoldMine_Destroyed.png" id="2_lr4br"]
 [ext_resource type="Texture2D" uid="uid://8l8wjl0jlt8v" path="res://entities/door/images/GoldMine_Inactive.png" id="3_h1gw4"]
 [ext_resource type="Texture2D" uid="uid://cu3sgy56u8070" path="res://entities/door/images/GoldMine_Active.png" id="4_ox0u6"]
+[ext_resource type="AudioStream" uid="uid://dx1ri634enig2" path="res://assets/sounds/nivel_1.wav" id="5_hpsyr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fs2oa"]
 atlas = ExtResource("2_lr4br")
@@ -72,3 +73,6 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
 position = Vector2(1.5, -8)
 shape = SubResource("RectangleShape2D_723al")
+
+[node name="entrar" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_hpsyr")

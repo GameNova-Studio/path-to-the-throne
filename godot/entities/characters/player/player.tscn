@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dd6b0hmw15amr"]
+[gd_scene load_steps=44 format=3 uid="uid://dd6b0hmw15amr"]
 
 [ext_resource type="Texture2D" uid="uid://32emst0ctttf" path="res://entities/characters/player/Warrior_Blue.png" id="1_nw63t"]
 [ext_resource type="Script" path="res://entities/characters/player/player.gd" id="1_y6xbq"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cl54874jf84gw" path="res://ui/components/game_button.tscn" id="4_ryjk7"]
 [ext_resource type="Script" path="res://globals/inventory/inventory_button.gd" id="5_58wdf"]
 [ext_resource type="PackedScene" uid="uid://bgr6tltrr0pji" path="res://entities/characters/player/interaction_ray_cast.tscn" id="5_kh0st"]
+[ext_resource type="AudioStream" uid="uid://dnha5vw5ohd3x" path="res://assets/sounds/ataque_1.wav" id="7_glw2m"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h3ms"]
 atlas = ExtResource("1_nw63t")
@@ -315,3 +316,6 @@ initial_velocity_max = 50.0
 scale_amount_min = 7.0
 scale_amount_max = 7.0
 color_ramp = SubResource("Gradient_1kcvp")
+
+[node name="golpe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_glw2m")
