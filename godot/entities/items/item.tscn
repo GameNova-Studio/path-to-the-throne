@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/items/item.gd" id="1_oxhqq"]
 [ext_resource type="Texture2D" uid="uid://bvbhchxyunk26" path="res://entities/items/textures/mushroom.png" id="2_jvb0w"]
-[ext_resource type="AudioStream" path="res://assets/sounds/711129__xiko__retro-collection-3.wav" id="3_ujhic"]
+[ext_resource type="AudioStream" uid="uid://rj1eyne2xjy" path="res://assets/sounds/711129__xiko__retro-collection-3.wav" id="3_ujhic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psoqa"]
 radius = 16.0312
