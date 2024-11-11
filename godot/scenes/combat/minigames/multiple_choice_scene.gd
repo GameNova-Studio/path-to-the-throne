@@ -16,8 +16,12 @@ func _ready():
 		multiple_choice.correct_answer
 	)
 
+func _process(delta):
+	pass
+
 func setup_minigame(question, answers, correct_answer):
 	question_label.text = question
+	
 	for option in options_container.get_children():
 		option.queue_free()
 	for answer in answers:
@@ -27,7 +31,6 @@ func setup_minigame(question, answers, correct_answer):
 		options_container.add_child(button, true)
 		button.pressed.connect(func():
 			paint_answers()
-			
 			if(answer == correct_answer):
 				self.on_correct_answer()
 			else:
@@ -50,3 +53,7 @@ func paint_answers():
 			option.modulate = Color.GREEN
 		else:
 			option.modulate = Color.RED
+
+
+func _on_timer_bar_timeout() -> void:
+	on_incorrect_answer()
