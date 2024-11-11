@@ -129,6 +129,9 @@ func close(item = null) -> void:
 	if(item != null):
 		item_selected.emit(item)
 
+## Reinicia el inventario, borrando todos los items.
+func reset_inventory() -> void:
+	items.clear()
 
 ## Abre el inventario y espera hasta que se haya elegido un objeto.
 ## Retorna el objeto elegido si se eligió alguno.
