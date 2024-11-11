@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://0nvbd1cionvf"]
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://0nvbd1cionvf"]
 
 [ext_resource type="Texture2D" uid="uid://cr81pdrvcjx8e" path="res://entities/characters/npcs/pawn/images/Pawn_Blue.png" id="1_bj1au"]
 
@@ -25,6 +25,30 @@ region = Rect2(768, 384, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jagaw"]
 atlas = ExtResource("1_bj1au")
 region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrpmj"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fprp6"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrwc5"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4e6yq"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rkhv"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3nj0"]
+atlas = ExtResource("1_bj1au")
+region = Rect2(960, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uh875"]
 atlas = ExtResource("1_bj1au")
@@ -73,6 +97,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"building",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrpmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fprp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrwc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4e6yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rkhv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3nj0")
+}],
+"loop": true,
+"name": &"cut",
 "speed": 10.0
 }, {
 "frames": [{
