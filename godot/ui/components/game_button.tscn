@@ -60,6 +60,7 @@ autowrap_mode = 3
 script = ExtResource("4_yay1e")
 
 [node name="ReadOutLoudButton" type="Button" parent="."]
+visible = false
 modulate = Color(1, 0.886275, 0, 1)
 z_index = 1
 layout_mode = 1
