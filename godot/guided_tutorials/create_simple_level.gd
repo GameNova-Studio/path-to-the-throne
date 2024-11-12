@@ -1,7 +1,7 @@
 extends GDTour
 
 const DUPLICATE = preload("res://guided_tutorials/duplicate.png")
-const SIMPLEST_LEVEL_SCENE_PATH = "res://scenes/levels/example_levels/simplest_level.tscn"
+const SIMPLEST_LEVEL_SCENE_PATH = "res://scenes/levels/example_levels/simple_level/simple_level.tscn"
 const TALKER_SCENE_PATH = "res://entities/prefabs/npcs/talker/talker.tscn"
 
 func _build() -> void:
@@ -11,7 +11,7 @@ func _build() -> void:
 	bubble_move_and_anchor(EditorInterface.get_base_control(), Bubble.At.BOTTOM_RIGHT)
 	bubble_add_task_open_scene(
 		SIMPLEST_LEVEL_SCENE_PATH,
-		"Abre la escena simplest_level.tscn"
+		"Abre la escena simple_level.tscn"
 	)
 	highlight_filesystem_paths(
 		[SIMPLEST_LEVEL_SCENE_PATH]
