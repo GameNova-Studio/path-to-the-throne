@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dd6b0hmw15amr"]
+[gd_scene load_steps=52 format=3 uid="uid://dd6b0hmw15amr"]
 
 [ext_resource type="Texture2D" uid="uid://32emst0ctttf" path="res://entities/characters/player/Warrior_Blue.png" id="1_nw63t"]
 [ext_resource type="Script" path="res://entities/characters/player/player.gd" id="1_y6xbq"]
@@ -6,6 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://cl54874jf84gw" path="res://ui/components/game_button.tscn" id="4_ryjk7"]
 [ext_resource type="Script" path="res://globals/inventory/inventory_button.gd" id="5_58wdf"]
 [ext_resource type="PackedScene" uid="uid://bgr6tltrr0pji" path="res://entities/characters/player/interaction_ray_cast.tscn" id="5_kh0st"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ruqj"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(576, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m3jco"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(768, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yore"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(960, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spgjs"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(0, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ufgk"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(192, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mh8b6"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(384, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkvcs"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(576, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdqfr"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(768, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsfgu"]
+atlas = ExtResource("1_nw63t")
+region = Rect2(960, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h3ms"]
 atlas = ExtResource("1_nw63t")
@@ -143,6 +179,38 @@ region = Rect2(960, 192, 192, 192)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3ruqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m3jco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yore")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spgjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ufgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mh8b6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkvcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdqfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsfgu")
+}],
+"loop": false,
+"name": &"cut",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8h3ms")
 }, {
 "duration": 1.0,
@@ -270,10 +338,10 @@ script = ExtResource("1_y6xbq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_wcqaw")
-animation = &"idle"
+animation = &"cut"
 autoplay = "idle"
-frame = 2
-frame_progress = 0.603807
+frame = 8
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 17)
