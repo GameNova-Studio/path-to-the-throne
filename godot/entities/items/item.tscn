@@ -1,72 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://ewf5cl8ycquv"]
+[gd_scene load_steps=5 format=3 uid="uid://ewf5cl8ycquv"]
 
 [ext_resource type="Script" path="res://entities/items/item.gd" id="1_oxhqq"]
 [ext_resource type="Texture2D" uid="uid://bvbhchxyunk26" path="res://entities/items/textures/mushroom.png" id="2_jvb0w"]
-[ext_resource type="Texture2D" uid="uid://cnvs72kc0vx2k" path="res://assets/Tiny Swords/Resources/Sheep/HappySheep_Idle.png" id="3_1ucbp"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ifa6i"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(0, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_80cbs"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(128, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jf4g1"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(256, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fsovj"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(384, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jk44d"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(512, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_446sw"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(640, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iaa8s"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(768, 0, 128, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jyt5j"]
-atlas = ExtResource("3_1ucbp")
-region = Rect2(896, 0, 128, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_qmq30"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ifa6i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_80cbs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jf4g1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fsovj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jk44d")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_446sw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iaa8s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jyt5j")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="AudioStream" uid="uid://rj1eyne2xjy" path="res://assets/sounds/711129__xiko__retro-collection-3.wav" id="3_ujhic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_psoqa"]
 radius = 16.0312
@@ -80,14 +16,10 @@ type = 3
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jvb0w")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_qmq30")
-autoplay = "default"
-frame = 1
-frame_progress = 0.194441
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, 6)
 rotation = 1.57941
 shape = SubResource("CircleShape2D_psoqa")
+
+[node name="collecting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ujhic")
