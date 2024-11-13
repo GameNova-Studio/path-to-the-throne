@@ -7,6 +7,8 @@ extends Area2D
 
 func interact_with(player):
 	if(next_scene):
+		# Se reinicia el inventario antes de cambiar de nivel
+		Inventory.reset_inventory()
 		# Espera a que el cuerpo del personaje termine de entrar a la cueva.
 		await player.open_door() 
 		# Reproduce la animación de closed (se destruye la cueva)
