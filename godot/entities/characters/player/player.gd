@@ -15,7 +15,8 @@ extends CharacterBody2D
 func _physics_process(_delta: float) -> void:
 	# Reinicia la velocidad en cada frame.
 	velocity = Vector2.ZERO
-	if is_opening_door():
+
+	if is_opening_door() or is_cut_tree():
 		return
 		
 	## Solo podemos movernos si no hay un dialogo abierto
@@ -66,7 +67,16 @@ func _physics_process(_delta: float) -> void:
 func open_door():
 	animated_sprite_2d.play("entrar")
 	await animated_sprite_2d.animation_finished
-	
+
 # Comprueba si se está reproduciendo la animación de entrar a la cueva.
 func is_opening_door():
 	return animated_sprite_2d.animation == "entrar"
+
+# Función para cortar el árbol
+func cut_tree():
+	animated_sprite_2d.play("cut")
+	await animated_sprite_2d.animation_finished
+
+# Verifica si el jugador está cortando el árbol
+func is_cut_tree() -> bool:
+	return animated_sprite_2d.animation == "cut" and animated_sprite_2d.is_playing()
