@@ -10,19 +10,22 @@ signal hit_landed
 
 func land_hit() -> void:
 	hit_landed.emit()
-
-
+	#Sonido del ataque impactando
+	$golpe.play()
+	
 func play_attack() -> void:
 	await play_one_of(attack_animation_names)
 
-
 func play_heal() -> void:
+	#Sonido de mordida de manzana (Inmersión)
+	$chomp.play()
+	#Brillitos verdes curativos
 	await play_one_of(heal_animation_names)
-
+	#Sonido para brillitos verdes curativos
+	$heal.play()
 
 func play_hurt() -> void:
 	await play_one_of(hurt_animation_names)
-
 
 func play_one_of(animation_names) -> void:
 	if animation_names.is_empty():

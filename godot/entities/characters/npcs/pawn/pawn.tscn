@@ -16,7 +16,7 @@ unique_name_in_owner = true
 sprite_frames = ExtResource("2_2ij8p")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.230065
+frame_progress = 0.958162
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
