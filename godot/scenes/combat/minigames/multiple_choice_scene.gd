@@ -16,9 +16,6 @@ func _ready():
 		multiple_choice.correct_answer
 	)
 
-func _process(delta):
-	pass
-
 func setup_minigame(question, answers, correct_answer):
 	question_label.text = question
 	
