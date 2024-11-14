@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf5acthjp2k06"]
+[gd_scene load_steps=18 format=3 uid="uid://cf5acthjp2k06"]
 
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="1_qy3un"]
 [ext_resource type="PackedScene" uid="uid://df46gwu1em2ut" path="res://scenes/combat/in_combat_characters/combat_sprite_target.tscn" id="2_wt7pv"]
 [ext_resource type="SpriteFrames" uid="uid://cd0nkwp6ueukh" path="res://entities/characters/npcs/archer/animations/archer_yellow.tres" id="3_k1p02"]
 [ext_resource type="Texture2D" uid="uid://8g7vc3kr2bc3" path="res://assets/Tiny Swords/Factions/Knights/Troops/Archer/Arrow/Arrow.png" id="4_8b8dd"]
+[ext_resource type="AudioStream" uid="uid://c5mjyc8p2a2tb" path="res://assets/sounds/flecha_1.wav" id="5_ak2yh"]
 
 [sub_resource type="Animation" id="Animation_xt1qj"]
 length = 0.001
@@ -226,3 +227,6 @@ process_material = SubResource("ParticleProcessMaterial_uxtbj")
 texture = SubResource("GradientTexture2D_djxgf")
 one_shot = true
 explosiveness = 1.0
+
+[node name="golpe" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ak2yh")
