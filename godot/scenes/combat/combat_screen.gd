@@ -53,7 +53,6 @@ func configure(
 		enemy_attack_minigame = %EnemyAttackMinigameMenu
 		if(not in_combat_character):
 			return
-
 		enemy.max_health = in_combat_character.hp
 		enemy.attack_power = in_combat_character.attack_power
 		var enemy_combat_sprite = in_combat_character.combat_sprite()
@@ -62,6 +61,7 @@ func configure(
 		var minigames = in_combat_character.minigames
 		if(not minigames.is_empty()):
 			enemy_attack_minigame.minigames = minigames
+
 
 func _ready():
 	help_button.pressed.connect(self.help)
@@ -80,9 +80,13 @@ func play_turns() -> void:
 		$VictoryFanfare.play()
 		await $VictoryFanfare.finished
 		finished.emit(Outcome.PlayerWon)
+		##Se actualiza la vida del jugador si gana
+		PlayerStatus.update_health(player.current_health)
 	elif player.current_health <= 0:
 		await wait_seconds(1.0)
 		finished.emit(Outcome.PlayerLost)
+		##Se actualiza la vida del jugador si pierde
+		PlayerStatus.update_health(player.current_health)
 
 ## Mostrar el diálogo de ayuda que explica que hacer. Cambia el texto según
 ## si se está en el turno del jugador o del oponente.
