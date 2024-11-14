@@ -1,0 +1,78 @@
+[gd_scene load_steps=12 format=3 uid="uid://oh02j5jq5i70"]
+
+[ext_resource type="Script" path="res://entities/characters/npcs/archer/npc_patrullero.gd" id="1_1t0o7"]
+[ext_resource type="Texture2D" uid="uid://bno3ffmysmbmm" path="res://entities/characters/npcs/archer/images/Archer_Blue.png" id="1_q0cky"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5sqg"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(0, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8iuu8"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(192, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_suce1"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(384, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkpqf"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(576, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyi6e"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(768, 192, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcyh0"]
+atlas = ExtResource("1_q0cky")
+region = Rect2(960, 192, 192, 192)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hwmx8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5sqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8iuu8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_suce1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkpqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyi6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcyh0")
+}],
+"loop": true,
+"name": &"Corriendo",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_a2eqx"]
+script/source = "extends AnimatedSprite2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o348a"]
+size = Vector2(28, 28)
+
+[node name="ArcherCaminante" type="Node2D"]
+
+[node name="Npc_patrullero" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1t0o7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Npc_patrullero"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_hwmx8")
+animation = &"Corriendo"
+frame = 4
+frame_progress = 0.66513
+script = SubResource("GDScript_a2eqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc_patrullero"]
+position = Vector2(-1, 14)
+shape = SubResource("RectangleShape2D_o348a")
