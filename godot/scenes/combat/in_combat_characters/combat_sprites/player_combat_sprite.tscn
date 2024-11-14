@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cl0w0m24diim5"]
+[gd_scene load_steps=29 format=3 uid="uid://cl0w0m24diim5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cs48ij7e2fsy7" path="res://entities/characters/player/player_sprite_frames.tres" id="1_8tn2u"]
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="2_6qtlk"]
@@ -89,6 +89,18 @@ tracks/6/path = NodePath(".:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -294,13 +306,41 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_g5rtm"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [&"dolor", &"dolor", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.333333, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.16, 0.16, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lx16q"]
 _data = {
 "RESET": SubResource("Animation_p023x"),
 "attack": SubResource("Animation_66sf4"),
 "double_attack": SubResource("Animation_xp6ld"),
 "heal": SubResource("Animation_mcbob"),
-"hurt": SubResource("Animation_uo1j7")
+"hurt": SubResource("Animation_uo1j7"),
+"new_animation": SubResource("Animation_g5rtm")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u08j6"]
@@ -374,7 +414,7 @@ height = 20
 script = ExtResource("2_6qtlk")
 attack_animation_names = Array[String](["attack", "double_attack"])
 heal_animation_names = Array[String](["heal"])
-hurt_animation_names = Array[String](["hurt"])
+hurt_animation_names = Array[String](["new_animation"])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
