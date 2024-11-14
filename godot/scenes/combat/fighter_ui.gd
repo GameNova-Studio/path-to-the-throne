@@ -7,18 +7,44 @@ var combat_sprite: CombatSprite
 @onready var shaker = $Shaker
 @onready var health_change_effect = $HealthChangeEffect
 
+## Indica si esta instancia es el jugador
+@export var is_player: bool = false
 
 @export var max_health: int = 300
-var current_health: int
+
+var current_health: int:
+	get = _get_current_health,
+	set = _set_current_health
+
 @export var attack_power: int = 10
 @export var heal_power: int = 10
 
 var already_attacked_this_turn: bool = false
 
+func _get_current_health():
+	if is_player:
+		return PlayerStatus.current_health
+	else:
+		return current_health
+
+func _set_current_health(new_health):
+	if is_player:
+		PlayerStatus.current_health = new_health
+	else:
+		current_health = new_health
+
 func _ready():
 	if(not combat_sprite):
 		combat_sprite = $SpritePivot/Sprite
-	current_health = max_health
+	# Si es necesario, por única vez en todo el juego se inicia la salud del jugador:
+	if is_player:
+		if PlayerStatus.current_health == 0:
+			PlayerStatus.current_health = max_health
+
+	# En caso no sea el jugador, la vida será la cantidad máxima al iniciar cada combate:
+	else:
+		current_health = max_health
+
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	combat_sprite.hit_landed.connect(self.on_sprite_animation_hit_landed)
