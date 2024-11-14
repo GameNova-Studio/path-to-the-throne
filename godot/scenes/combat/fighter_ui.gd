@@ -7,9 +7,11 @@ var combat_sprite: CombatSprite
 @onready var shaker = $Shaker
 @onready var health_change_effect = $HealthChangeEffect
 
-
+## Variable para indicar si esta instancia es el jugador
+@export var is_player: bool = false
+  
 @export var max_health: int = 300
-var current_health: int
+var current_health: int = 0
 @export var attack_power: int = 10
 @export var heal_power: int = 10
 
@@ -18,7 +20,18 @@ var already_attacked_this_turn: bool = false
 func _ready():
 	if(not combat_sprite):
 		combat_sprite = $SpritePivot/Sprite
-	current_health = max_health
+	## Se verifica si se trata del jugador
+	if is_player:
+		## Si la vida no está inicializada, adquiere el valor máximo
+		if not PlayerStatus.health:
+			current_health=max_health
+		## Si ya existe un valor, se mantiene
+		else:
+			current_health = PlayerStatus.health
+	## Si es enemigo, el valor de la vida será el máximo
+	else:
+		current_health = max_health
+		
 	health_bar.max_value = max_health
 	health_bar.value = current_health
 	combat_sprite.hit_landed.connect(self.on_sprite_animation_hit_landed)
@@ -52,7 +65,6 @@ func be_hurted(amount: int):
 func heal():
 	health_change_effect.play_heal(heal_power)
 	current_health = move_toward(current_health, max_health, heal_power)
-	
 	await combat_sprite.play_heal()
 
 
