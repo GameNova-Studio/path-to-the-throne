@@ -22,13 +22,12 @@ func _ready():
 		combat_sprite = $SpritePivot/Sprite
 	##Se verifica si se trata del jugador para recordar su vida
 	if(is_player):
-		##Si es la primera vez que el jugador combate su vida será lo máximo
-		if not PlayerStatus.health_start:
+		##Si la variable health no tiene valor, se le asignará el valor máximo de vida
+		if not PlayerStats.health:
 			current_health=max_health
-			PlayerStatus.health_start=true
-		##En caso se compruebe que el jugador jugó antes se recordará la vida anterior
+		##Si health ya tiene un valor (ya combatió), se utiliza los hp almacenados 
 		else:
-			current_health = PlayerStatus.health
+			current_health = PlayerStats.health
 	##En caso no sea el jugador, la vida será la cantidad máxima
 	else:
 		current_health = max_health

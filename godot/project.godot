@@ -39,6 +39,7 @@ Dialogue="*res://globals/dialogue/dialogue.tscn"
 Inventory="*res://globals/inventory/inventory.tscn"
 SceneChanger="*res://globals/scene_changer/SceneChanger.tscn"
 PauseOverlay="*res://ui/overlays/pause_overlay.tscn"
+PlayerStats="*res://globals/player_status/player_status.gd"
 
 [debug]
 

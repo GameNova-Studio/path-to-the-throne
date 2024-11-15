@@ -80,13 +80,11 @@ func play_turns() -> void:
 		$VictoryFanfare.play()
 		await $VictoryFanfare.finished
 		finished.emit(Outcome.PlayerWon)
-		##Se actualiza la vida del jugador si gana
-		PlayerStatus.update_health(player.current_health)
 	elif player.current_health <= 0:
 		await wait_seconds(1.0)
 		finished.emit(Outcome.PlayerLost)
-		##Se actualiza la vida del jugador si pierde
-		PlayerStatus.update_health(player.current_health)
+	##Se guarda la vida del jugador al finalizar el combate
+	PlayerStats.update_health(player.current_health)
 
 ## Mostrar el diálogo de ayuda que explica que hacer. Cambia el texto según
 ## si se está en el turno del jugador o del oponente.
