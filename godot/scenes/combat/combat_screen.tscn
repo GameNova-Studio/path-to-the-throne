@@ -398,6 +398,7 @@ offset_right = 40.0
 offset_bottom = 65.0
 script = ExtResource("18_0ntup")
 opponent = NodePath("../Enemy")
+is_player = true
 max_health = 200
 
 [node name="SpritePivot" type="Node2D" parent="Player"]
