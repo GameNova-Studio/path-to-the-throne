@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://entities/prefabs/npcs/guard/guard_that_uses_signal.gd" id="1_owpjj"]
 [ext_resource type="SpriteFrames" uid="uid://cd0nkwp6ueukh" path="res://entities/characters/npcs/archer/animations/archer_yellow.tres" id="2_40hmc"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntg0w"]
 size = Vector2(27, 23)
 
@@ -17,7 +16,6 @@ unique_name_in_owner = true
 sprite_frames = ExtResource("2_40hmc")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.166665
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
