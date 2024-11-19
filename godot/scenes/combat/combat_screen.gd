@@ -83,6 +83,7 @@ func play_turns() -> void:
 	elif player.current_health <= 0:
 		await wait_seconds(1.0)
 		finished.emit(Outcome.PlayerLost)
+	
 	##Se actualiza la vida del jugador al terminar el combate
 	PlayerStatus.update_health(player.current_health)
 
@@ -145,3 +146,8 @@ func play_a_turn() -> void:
 ## realizar otra tarea.
 func wait_seconds(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+func _process(delta):
+	if Input.is_key_pressed(KEY_X):
+		await wait_seconds(1.0)
+		finished.emit(Outcome.PlayerLost)
