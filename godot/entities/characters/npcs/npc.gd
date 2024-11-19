@@ -22,6 +22,17 @@ func load_animation():
 func _ready():
 	load_animation()
 
+func _notification(what):
+	if what == NOTIFICATION_EDITOR_PRE_SAVE:
+		# Prevenimos que se guarde un frame_progress distinto para
+		# la animación cada vez que se guarda una escena NPC:
+		%AnimatedSprite2D.stop()
+
+	elif what == NOTIFICATION_EDITOR_POST_SAVE:
+		# Como la animación se pudo haber detenido antes de guardar la
+		# escena, volvemos a cargarla y reproducirla si es necesario:
+		load_animation()
+
 func interact_with(_player):
 	await Dialogue.say_line(npc_name, "Hola!")
 
