@@ -1,31 +1,58 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctrpp1le7v7sq"]
+[gd_scene load_steps=6 format=3 uid="uid://ctrpp1le7v7sq"]
 
-[ext_resource type="Texture2D" uid="uid://cvmibqycvarkk" path="res://assets/Tiny Swords/UI/Bar/progress bar most rounded progress dark grey.png" id="1_4gcbb"]
-[ext_resource type="Texture2D" uid="uid://cl42d2cfrvw1c" path="res://assets/Tiny Swords/UI/Bar/progress bar most rounded over.png" id="2_ehedl"]
-[ext_resource type="Texture2D" uid="uid://bgaepum54d0r6" path="res://assets/Tiny Swords/UI/Bar/progress bar most rounded progress red.png" id="3_1pocd"]
+[ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="3_u27k8"]
 [ext_resource type="Script" path="res://ui/components/timer_bar.gd" id="4_5hr73"]
 
-[node name="TimerBar" type="TextureProgressBar"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ayp5n"]
+load_path = "res://.godot/imported/Button_Red.png-5ae64c3cf22ceabce92f3089a7d36546.ctex"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1ko"]
+
+[sub_resource type="Theme" id="Theme_pamuc"]
+Label/colors/font_outline_color = Color(0.176471, 0.215686, 0.270588, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("3_u27k8")
+Label/styles/normal = SubResource("StyleBoxEmpty_go1ko")
+
+[node name="TimerBar" type="TextureRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -427.0
-offset_bottom = -398.0
+offset_right = -1136.0
+offset_bottom = -848.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
 size_flags_vertical = 2
-max_value = 11.0
-stretch_margin_left = 32
-stretch_margin_top = 8
-texture_under = ExtResource("1_4gcbb")
-texture_over = ExtResource("2_ehedl")
-texture_progress = ExtResource("3_1pocd")
+texture = SubResource("CompressedTexture2D_ayp5n")
+stretch_mode = 2
 script = ExtResource("4_5hr73")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 11.0
+wait_time = 10.9
 one_shot = true
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pamuc")
+text = "0"
+horizontal_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
