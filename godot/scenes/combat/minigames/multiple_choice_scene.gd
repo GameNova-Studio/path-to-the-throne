@@ -5,7 +5,7 @@ class_name MultipleChoiceMiniGame extends MiniGameScene
 @onready var question_label = %QuestionLabel
 @onready var correct = $Correct
 @onready var wrong = $Wrong
-
+@onready var timer_timebar = $TimerBar/Timer
 
 const COMBAT_OPTION_BUTTON = preload("res://ui/components/game_button.tscn")
 
@@ -36,11 +36,13 @@ func setup_minigame(question, answers, correct_answer):
 	
 func on_correct_answer():
 	correct.play()
+	timer_timebar.paused = true
 	await get_tree().create_timer(0.5).timeout
 	succeed()
 
 func on_incorrect_answer():
 	wrong.play()
+	timer_timebar.paused = true
 	await get_tree().create_timer(0.5).timeout
 	fail()
 
@@ -53,4 +55,4 @@ func paint_answers():
 
 
 func _on_timer_bar_timeout() -> void:
-	on_incorrect_answer()
+	self.on_incorrect_answer()
