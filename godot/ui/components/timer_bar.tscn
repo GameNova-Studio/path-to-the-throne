@@ -35,9 +35,8 @@ stretch_mode = 2
 script = ExtResource("4_5hr73")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.9
+wait_time = 10.0
 one_shot = true
-autostart = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 2

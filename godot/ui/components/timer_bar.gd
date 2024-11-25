@@ -5,9 +5,6 @@ extends Node
 signal timeout
 var seconds: int = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	$Timer.paused = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,6 +12,9 @@ func _process(delta: float) -> void:
 	
 	$Label.text = "%.0f" % $Timer.time_left
 
+func comenzar():
+	print("COMENZAR")
+	$Timer.start()
 
 func _on_timer_timeout() -> void:
 	

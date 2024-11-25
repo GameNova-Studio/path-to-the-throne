@@ -19,6 +19,10 @@ enum MinigameOutCome {
 }
 
 
+func cuando_termina_el_tiempo():
+	minigame_scene.fail()
+
+
 func setup_turn():
 	minigame_scene = create_next_minigame()
 
