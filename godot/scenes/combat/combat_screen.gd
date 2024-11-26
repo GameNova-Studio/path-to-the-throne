@@ -145,3 +145,8 @@ func play_a_turn() -> void:
 ## realizar otra tarea.
 func wait_seconds(seconds: float) -> void:
 	await get_tree().create_timer(seconds).timeout
+
+
+func _process(delta):
+	if Input.is_action_just_released("salir_batalla"):
+		finished.emit(Outcome.PlayerLost)
