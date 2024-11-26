@@ -97,6 +97,7 @@ npc_name = "Marlor the Explorer"
 [node name="Advisor4" parent="Npcs" instance=ExtResource("3_xsoqf")]
 z_index = 1
 position = Vector2(2470, 564)
+position = Vector2(2562, 544)
 line = "Did you see all those bones on the ground? [hint=\"Escalofriante\"]Spooky[/hint]!"
 npc_name = "Smaugh the Scout"
 
@@ -197,11 +198,19 @@ trade_successful_line = "Thanks for your [hint=\"negocio\"]business![/hint]. Use
 npc_name = "Sabrina the Carpenter"
 
 [node name="Cueva" parent="." instance=ExtResource("9_02ecn")]
+<<<<<<< HEAD
 position = Vector2(1415, 1963)
 next_scene = "res://scenes/levels/story_mode/level_credits/level_credits.tscn"
 
 [node name="Talker" parent="." instance=ExtResource("3_xsoqf")]
 position = Vector2(1550, 2040)
+=======
+position = Vector2(1417, 1927)
+next_scene = "res://scenes/levels/story_mode/level_credits/level_credits.tscn"
+
+[node name="Talker" parent="." instance=ExtResource("3_xsoqf")]
+position = Vector2(1544, 2008)
+>>>>>>> parent of 6824603 (Mejoramiento de vista Nivel 3)
 line = "Well done Arturo! We have been expecting you. Now you are king of england!
 Congratulations!"
 npc_name = "Oscar"
