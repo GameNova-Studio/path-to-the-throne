@@ -319,7 +319,7 @@ anim_speed_min = 1.0
 anim_speed_max = 1.0
 
 [sub_resource type="Gradient" id="Gradient_jv0lh"]
-colors = PackedColorArray(1, 1, 1, 1, 0.537255, 1, 1, 1)
+colors = PackedColorArray(0.988235, 0.756863, 0.376471, 1, 0.827451, 0.101961, 0.0784314, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_iyxax"]
 gradient = SubResource("Gradient_jv0lh")
@@ -395,7 +395,7 @@ z_index = 100
 position = Vector2(41.2, -1.2)
 scale = Vector2(0.4, 0.4)
 emitting = false
-amount = 30
+amount = 40
 process_material = SubResource("ParticleProcessMaterial_s0y85")
 texture = SubResource("GradientTexture2D_428ro")
 one_shot = true
