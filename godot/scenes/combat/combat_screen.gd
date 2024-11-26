@@ -14,6 +14,8 @@ class_name CombatScreen extends Control
 @onready var enemy = %Enemy
 ## Botón de ayuda, muestra la ayuda descripta en [method CombatScreen.help]
 @onready var help_button = %HelpButton
+## Inicio del temporizador del enemigo
+@onready var timer_bar = $TimerBar
 ## Mensaje de ayuda a mostrar cuando se ejecuta [method CombatScreen.help] y
 ## el [enum CombatScreen.Turn] es [enum CombatScreen.Turn.Player]
 @export_multiline var help_message_player_turn: String
@@ -66,6 +68,7 @@ func configure(
 func _ready():
 	help_button.pressed.connect(self.help)
 	play_turns()
+	timer_bar.timeout.connect(%EnemyAttackMinigameMenu.timer_time_out)
 
 ## El loop principal del combate. Mientras tanto [member CombatScreen.player] como
 ## [member CombatScreen.enemy] tengan vida, se juega un turno.[br]
@@ -124,6 +127,8 @@ func play_a_turn() -> void:
 			
 			turn = Turn.Enemy
 		Turn.Enemy:
+			timer_bar.start()
+			
 			enemy_attack_minigame.setup_turn()
 			
 			if(not enemy_help_shown):

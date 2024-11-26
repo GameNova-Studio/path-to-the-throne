@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://n0siq684nkln"]
+[gd_scene load_steps=39 format=3 uid="uid://n0siq684nkln"]
 
 [ext_resource type="Script" path="res://scenes/combat/combat_screen.gd" id="1_2mq25"]
 [ext_resource type="Script" path="res://ui/parallax_background.gd" id="1_ioiym"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/combat/fighter_ui.gd" id="18_0ntup"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="19_altx3"]
 [ext_resource type="Script" path="res://scenes/combat/choose_attack.gd" id="19_umu76"]
+[ext_resource type="PackedScene" uid="uid://ctrpp1le7v7sq" path="res://ui/components/timer_bar.tscn" id="20_q8qdy"]
 [ext_resource type="PackedScene" uid="uid://cl54874jf84gw" path="res://ui/components/game_button.tscn" id="21_tyn66"]
 [ext_resource type="Script" path="res://scenes/combat/enemy_attack_minigame.gd" id="22_burgw"]
 [ext_resource type="Texture2D" uid="uid://7qjypsgo6fld" path="res://assets/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="23_1c1jq"]
@@ -536,3 +537,10 @@ autoplay = true
 
 [node name="VictoryFanfare" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("33_4pcem")
+
+[node name="TimerBar" parent="." instance=ExtResource("20_q8qdy")]
+layout_mode = 1
+offset_left = 525.0
+offset_top = 20.0
+offset_right = -483.0
+offset_bottom = -828.0
