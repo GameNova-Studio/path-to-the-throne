@@ -12,8 +12,6 @@ extends CharacterBody2D
 ##Se inician las particulas que se generan al correr
 @onready var run_particles = $CPUParticles2D
 
-
-@onready var Sonido_Pasos= $"Person-running-loop-245173"
 func _physics_process(_delta: float) -> void:
 	# Reinicia la velocidad en cada frame.
 	velocity = Vector2.ZERO
@@ -52,12 +50,6 @@ func _physics_process(_delta: float) -> void:
 		# Verifica si se está presionando la tecla para moverse hacia abajo. (Y)
 		if Input.is_action_pressed("move_down"):
 			velocity.y= V_SPEED
-		# Si el vector de velocidad no es cero, el personaje se está moviendo.
-		if velocity != Vector2.ZERO:
-			if not Sonido_Pasos.playing:
-				Sonido_Pasos.play()  # Solo reproduce si no está ya reproduciendo.
-		else:
-			Sonido_Pasos.stop()  # Detiene el sonido si no hay movimiento.
 	
 	# Cambia la animación según si el jugador esta intentando mover al
 	# personaje o no.
