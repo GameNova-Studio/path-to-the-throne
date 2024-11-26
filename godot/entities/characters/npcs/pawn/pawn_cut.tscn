@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dml6o5y7r3y37"]
+
+[ext_resource type="SpriteFrames" uid="uid://0nvbd1cionvf" path="res://entities/characters/npcs/pawn/animations/pawn_blue.tres" id="1_6qc35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipqar"]
+size = Vector2(31, 33)
+
+[node name="pawn_cut" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_6qc35")
+animation = &"cut"
+autoplay = "cut"
+frame_progress = 0.953377
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 6.5)
+shape = SubResource("RectangleShape2D_ipqar")

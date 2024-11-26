@@ -14,10 +14,6 @@ region = Rect2(192, 576, 192, 192)
 atlas = ExtResource("1_v3h7h")
 region = Rect2(384, 576, 192, 192)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b3d2e"]
-atlas = ExtResource("1_v3h7h")
-region = Rect2(576, 576, 192, 192)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihypj"]
 atlas = ExtResource("1_v3h7h")
 region = Rect2(768, 576, 192, 192)
@@ -25,6 +21,10 @@ region = Rect2(768, 576, 192, 192)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4bcs7"]
 atlas = ExtResource("1_v3h7h")
 region = Rect2(960, 576, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3d2e"]
+atlas = ExtResource("1_v3h7h")
+region = Rect2(576, 576, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4l8pl"]
 atlas = ExtResource("1_v3h7h")
@@ -87,13 +87,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_4wprb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b3d2e")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ihypj")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4bcs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3d2e")
 }],
 "loop": true,
 "name": &"attack",

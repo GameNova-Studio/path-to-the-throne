@@ -37,7 +37,14 @@ const INVENTORY_ITEM = preload("res://globals/inventory/inventory_item.tscn")
 @onready var items_container = %ItemsContainer
 ## Botón para salir del inventario.
 @onready var close_button = %CloseButton
-
+## Sonidos a reproducir al almacenar items
+@onready var fruits =$FruitCollect1
+@onready var money= $"Coin-and-money-bag-4-185265"
+@onready var vegetables_meat = $"Collect-points-190037"
+@onready var obeja = $"Sheep1-2-91310"
+@onready var tronco = $"Wood-step-sample-1-47664"
+@onready var hueso = $"Blocking-arm-with-hand-6941"
+@onready var papel = $"Papel2-81612"
 ## Se emite cuando el inventario se abre.
 signal opened
 ## Se emite cuando el inventario se cierra.[br]
@@ -63,7 +70,18 @@ func add_item(item: Item.Type) -> void:
 	## Una vez ya nos aseguramos que el objeto existe en el inventario,
 	## aumentamos el valor que representa a la cantidad en 1.
 	items[item] += 1
-
+	if item == Item.Type.Calabaza or item == Item.Type.Hongo or item == Item.Type.Carne:
+		fruits.play()
+	elif item == Item.Type.Dinero:
+		money.play()
+	elif item == Item.Type.Oveja:
+		obeja.play()
+	elif item == Item.Type.Tronco:
+		tronco.play()
+	elif item == Item.Type.Hueso:
+		hueso.play()
+	elif item == Item.Type.Papiro:
+		papel.play()
 ## Elimina un objeto del tipo especificado del inventario.
 func remove_item(item: Item.Type) -> void:
 	## Si el objeto no está en el inventario no hacemos nada.
