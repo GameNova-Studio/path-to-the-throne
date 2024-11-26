@@ -202,6 +202,7 @@ libraries = {
 }
 
 [node name="Target" parent="." instance=ExtResource("2_21o2e")]
+visible = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2.5, 2.5)

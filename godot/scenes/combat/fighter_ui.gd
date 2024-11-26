@@ -84,7 +84,7 @@ func multiplier():
 	await combat_sprite.play_multiplier()
 
 func divider():
-	await combat_sprite.play_divider()
+	await opponent.combat_sprite.play_divider()
 	opponent.divider_power= 0.5 #El ataque del enemigo se reduce a la mitad
 
 func _process(delta):
