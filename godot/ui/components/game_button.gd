@@ -2,6 +2,10 @@
 class_name GameButton extends Button
 
 @onready var read_button = $ReadOutLoudButton
+
+## Se usa para mostrar los efectos en el ataque
+@onready var status = $Status
+
 @export var text_to_voice: bool = false :
 	set(new_value):
 		text_to_voice = new_value

@@ -27,6 +27,14 @@ func play_heal() -> void:
 func play_hurt() -> void:
 	await play_one_of(hurt_animation_names)
 
+## AGREGAR ANIMACIÓN Y/O EFECTO DEL MULTIPLIER
+func play_multiplier() ->void:
+	pass
+
+## AGREGAR ANIMACION Y/O EFECTO DEL DIVIDER
+func play_divider() -> void:
+	pass
+
 func play_one_of(animation_names) -> void:
 	if animation_names.is_empty():
 		await get_tree().process_frame
