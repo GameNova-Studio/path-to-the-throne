@@ -89,8 +89,9 @@ script = ExtResource("1_hknax")
 unique_name_in_owner = true
 position = Vector2(-1, -32)
 sprite_frames = SubResource("SpriteFrames_ehcqw")
-animation = &"end"
+animation = &"start"
 autoplay = "start"
+frame_progress = 0.293266
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 31)

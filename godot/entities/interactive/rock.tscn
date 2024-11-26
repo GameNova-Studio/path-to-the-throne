@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://nq23sdb43ejw"]
+
+[ext_resource type="Script" path="res://entities/interactive/pine_tree.gd" id="1_ya18w"]
+[ext_resource type="Texture2D" uid="uid://dgvde76mrtse8" path="res://entities/interactive/Rock.webp" id="4_7otrg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3e78"]
+atlas = ExtResource("4_7otrg")
+region = Rect2(9, 9, 109, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riamx"]
+atlas = ExtResource("4_7otrg")
+region = Rect2(9, 9, 109, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ehcqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3e78")
+}],
+"loop": true,
+"name": &"end",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riamx")
+}],
+"loop": true,
+"name": &"start",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ldsxm"]
+size = Vector2(74, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_723al"]
+size = Vector2(53, 55)
+
+[node name="Rock" type="Area2D"]
+collision_layer = 2147483652
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_ya18w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+position = Vector2(-1, 15)
+sprite_frames = SubResource("SpriteFrames_ehcqw")
+animation = &"start"
+autoplay = "start"
+frame_progress = 0.0641187
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 18)
+shape = SubResource("RectangleShape2D_ldsxm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+one_shot = true
+
+[node name="Collision" type="StaticBody2D" parent="."]
+collision_layer = 2147483648
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Collision"]
+position = Vector2(0.5, 18.5)
+shape = SubResource("RectangleShape2D_723al")

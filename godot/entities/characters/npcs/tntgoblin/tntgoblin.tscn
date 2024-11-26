@@ -14,8 +14,9 @@ sprite_frames = ExtResource("2_0jb6e")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_0jb6e")
-animation = &"idle"
+animation = &"attack"
 autoplay = "idle"
+frame_progress = 0.801571
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 12)
