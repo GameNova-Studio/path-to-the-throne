@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://cl0w0m24diim5"]
+[gd_scene load_steps=27 format=3 uid="uid://cl0w0m24diim5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cs48ij7e2fsy7" path="res://entities/characters/player/player_sprite_frames.tres" id="1_8tn2u"]
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="2_6qtlk"]
 [ext_resource type="PackedScene" uid="uid://df46gwu1em2ut" path="res://scenes/combat/in_combat_characters/combat_sprite_target.tscn" id="2_lpixj"]
 [ext_resource type="Texture2D" uid="uid://b3pmtodft1dlv" path="res://assets/Tiny Swords/Effects/Explosion/Explosions.png" id="3_8rmwg"]
+[ext_resource type="Texture2D" uid="uid://y0dfp3y2u3lk" path="res://scenes/combat/in_combat_characters/combat_sprites/healplus.png" id="5_023i2"]
 [ext_resource type="AudioStream" uid="uid://b2qrjy6h8mtii" path="res://assets/sounds/ataque_1.wav" id="5_f7w2d"]
 [ext_resource type="AudioStream" uid="uid://daft5e0qnscki" path="res://assets/sounds/apple_bite_1.wav" id="6_8ogvt"]
 [ext_resource type="AudioStream" uid="uid://bhu8msu8po51q" path="res://assets/sounds/heal_1.wav" id="7_ap10n"]
@@ -357,18 +358,9 @@ gradient = SubResource("Gradient_ig3dk")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gf812"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(30, 20, 3)
+emission_box_extents = Vector3(30, 30, 3)
 gravity = Vector3(0, -98, 0)
 color_ramp = SubResource("GradientTexture1D_h4fu7")
-
-[sub_resource type="Gradient" id="Gradient_rwvde"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vth63"]
-gradient = SubResource("Gradient_rwvde")
-width = 4
-height = 20
 
 [node name="CombatSprite" type="Node2D"]
 script = ExtResource("2_6qtlk")
@@ -412,9 +404,9 @@ explosiveness = 1.0
 
 [node name="HealParticles" type="GPUParticles2D" parent="Sprite"]
 emitting = false
-amount = 30
+amount = 60
 process_material = SubResource("ParticleProcessMaterial_gf812")
-texture = SubResource("GradientTexture2D_vth63")
+texture = ExtResource("5_023i2")
 one_shot = true
 explosiveness = 0.2
 
