@@ -75,13 +75,13 @@ radius = 16.0312
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_oxhqq")
-type = 7
+type = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("2_nr0fj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_qmq30")
 autoplay = "default"
 frame = 1
