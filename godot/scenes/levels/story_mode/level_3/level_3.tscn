@@ -198,7 +198,7 @@ npc_name = "Sabrina the Carpenter"
 
 [node name="Cueva" parent="." instance=ExtResource("9_02ecn")]
 position = Vector2(1415, 1962)
-next_scene = "res://scenes/levels/story_mode/level_credits/level_credits.tscn"
+next_scene = "res://scenes/levels/story_mode/level_4/level_4.tscn"
 
 [node name="Talker" parent="." instance=ExtResource("3_xsoqf")]
 position = Vector2(1575, 2020)
