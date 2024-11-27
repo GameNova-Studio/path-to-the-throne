@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cl0w0m24diim5"]
+[gd_scene load_steps=31 format=3 uid="uid://cl0w0m24diim5"]
 
 [ext_resource type="SpriteFrames" uid="uid://cs48ij7e2fsy7" path="res://entities/characters/player/player_sprite_frames.tres" id="1_8tn2u"]
 [ext_resource type="Script" path="res://scenes/combat/in_combat_characters/combat_sprite.gd" id="2_6qtlk"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://b2qrjy6h8mtii" path="res://assets/sounds/ataque_1.wav" id="5_f7w2d"]
 [ext_resource type="AudioStream" uid="uid://daft5e0qnscki" path="res://assets/sounds/apple_bite_1.wav" id="6_8ogvt"]
 [ext_resource type="AudioStream" uid="uid://bhu8msu8po51q" path="res://assets/sounds/heal_1.wav" id="7_ap10n"]
+[ext_resource type="AudioStream" uid="uid://d0gbabqqyhx0r" path="res://assets/sounds/hacha_1.wav" id="9_fnxd0"]
 
 [sub_resource type="Animation" id="Animation_p023x"]
 length = 0.001
@@ -94,6 +95,54 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/BuffParticles:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite/NerfParticles:emitting")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("heal:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("hit:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_66sf4"]
@@ -295,13 +344,94 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_f4y2u"]
+resource_name = "buff"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/BuffParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(5.67943e-06, 0.75317, 0.669148, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("heal:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_rq1lj"]
+resource_name = "nerf"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/NerfParticles:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.635294, 0.0784314, 0.301961, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("hit:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lx16q"]
 _data = {
 "RESET": SubResource("Animation_p023x"),
 "attack": SubResource("Animation_66sf4"),
+"buff": SubResource("Animation_f4y2u"),
 "double_attack": SubResource("Animation_xp6ld"),
 "heal": SubResource("Animation_mcbob"),
-"hurt": SubResource("Animation_uo1j7")
+"hurt": SubResource("Animation_uo1j7"),
+"nerf": SubResource("Animation_rq1lj")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u08j6"]
@@ -362,11 +492,17 @@ emission_box_extents = Vector3(30, 30, 3)
 gravity = Vector3(0, -98, 0)
 color_ramp = SubResource("GradientTexture1D_h4fu7")
 
+[sub_resource type="Curve" id="Curve_gukc1"]
+_data = [Vector2(0.0224719, 1), 0.0, 0.0, 0, 0, Vector2(0.955056, 0.0879121), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="CombatSprite" type="Node2D"]
 script = ExtResource("2_6qtlk")
 attack_animation_names = Array[String](["attack", "double_attack"])
 heal_animation_names = Array[String](["heal"])
 hurt_animation_names = Array[String](["hurt"])
+buff_animation_names = Array[String](["buff"])
+nerf_animation_names = Array[String](["nerf"])
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -411,6 +547,31 @@ texture = ExtResource("5_023i2")
 one_shot = true
 explosiveness = 0.2
 
+[node name="NerfParticles" type="CPUParticles2D" parent="Sprite"]
+emitting = false
+amount = 60
+one_shot = true
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_gukc1")
+color = Color(0.635443, 0.0769192, 0.303091, 1)
+
+[node name="BuffParticles" type="CPUParticles2D" parent="Sprite"]
+emitting = false
+amount = 45
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 40.0
+gravity = Vector2(0, -600)
+scale_amount_min = 10.0
+scale_amount_max = 15.0
+color = Color(0.270159, 0.566917, 0.655908, 1)
+
 [node name="golpe" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_f7w2d")
 
@@ -419,3 +580,6 @@ stream = ExtResource("6_8ogvt")
 
 [node name="heal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_ap10n")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_fnxd0")

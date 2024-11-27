@@ -6,7 +6,8 @@ signal hit_landed
 @export var attack_animation_names: Array[String] = []
 @export var heal_animation_names: Array[String] = []
 @export var hurt_animation_names: Array[String] = []
-
+@export var buff_animation_names: Array[String] = [] 
+@export var nerf_animation_names: Array[String] = []
 
 func land_hit() -> void:
 	hit_landed.emit()
@@ -27,13 +28,11 @@ func play_heal() -> void:
 func play_hurt() -> void:
 	await play_one_of(hurt_animation_names)
 
-## AGREGAR ANIMACIÓN Y/O EFECTO DEL MULTIPLIER
 func play_multiplier() ->void:
-	pass
+	await play_one_of(buff_animation_names)
 
-## AGREGAR ANIMACION Y/O EFECTO DEL DIVIDER
 func play_divider() -> void:
-	pass
+	await play_one_of(nerf_animation_names)
 
 func play_one_of(animation_names) -> void:
 	if animation_names.is_empty():

@@ -26,7 +26,7 @@ enum EnemyAction {
 	Divider
 }
 
-var prob = { EnemyAction.Attack: 0.5, EnemyAction.Multiply: 0.25, EnemyAction.Divider: 0.25 }
+var prob = { EnemyAction.Attack: 0.5, EnemyAction.Multiply: 0.3, EnemyAction.Divider: 0.2 }
 
 func setup_turn():
 	## Solo si hay un efecto se mostrará el cuadro con el efecto sobre el enemigo
