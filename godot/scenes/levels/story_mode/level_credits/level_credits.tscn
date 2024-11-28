@@ -320,7 +320,7 @@ offset_bottom = 428.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxTexture_i4m3w")
-text = "Carlos Juniors Chiroque SIlva 
+text = "Jorge Carlos Chojeda Alegría
 Shirley Jennifer Reyes Aguilar
 Alvaro Kenneth Pacheco Castro 
 Giovanni André Osorio Risi
@@ -353,7 +353,8 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_i57fy")
 text = "Jhan Pool Anibal Huayre
 Ysamar Aracely Balcazar Rios
 Katherine Eloisa Flores Alvarez
-Jorge Carlos Chojeda Alegría"
+Carlos Juniors Chiroque SIlva 
+"
 horizontal_alignment = 1
 
 [node name="Label_Contribución" type="Label" parent="."]
