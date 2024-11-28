@@ -1,12 +1,14 @@
-[gd_scene load_steps=39 format=3 uid="uid://n0siq684nkln"]
+[gd_scene load_steps=45 format=3 uid="uid://n0siq684nkln"]
 
 [ext_resource type="Script" path="res://scenes/combat/combat_screen.gd" id="1_2mq25"]
 [ext_resource type="Script" path="res://ui/parallax_background.gd" id="1_ioiym"]
 [ext_resource type="PackedScene" uid="uid://6wfbvrawswfu" path="res://scenes/combat/combat_background.tscn" id="3_kwdlw"]
+[ext_resource type="Texture2D" uid="uid://k20k0rpc5f1l" path="res://assets/Tiny Swords/UI/Buttons/Button_Blue_3Slides.png" id="16_sp2u6"]
+[ext_resource type="Texture2D" uid="uid://bylxapp1aec53" path="res://assets/Tiny Swords/UI/Buttons/Button_Blue_3Slides_Pressed.png" id="17_p2uwu"]
 [ext_resource type="Script" path="res://scenes/combat/fighter_ui.gd" id="18_0ntup"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="19_altx3"]
 [ext_resource type="Script" path="res://scenes/combat/choose_attack.gd" id="19_umu76"]
-[ext_resource type="PackedScene" uid="uid://ctrpp1le7v7sq" path="res://ui/components/timer_bar.tscn" id="20_q8qdy"]
+[ext_resource type="PackedScene" path="res://ui/components/timer_bar.tscn" id="20_q8qdy"]
 [ext_resource type="PackedScene" uid="uid://cl54874jf84gw" path="res://ui/components/game_button.tscn" id="21_tyn66"]
 [ext_resource type="Script" path="res://scenes/combat/enemy_attack_minigame.gd" id="22_burgw"]
 [ext_resource type="Texture2D" uid="uid://7qjypsgo6fld" path="res://assets/Tiny Swords/UI/Banners/Banner_Horizontal.png" id="23_1c1jq"]
@@ -237,6 +239,44 @@ font = ExtResource("19_altx3")
 font_size = 30
 font_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vpfsn"]
+content_margin_left = 40.0
+content_margin_top = 20.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = ExtResource("16_sp2u6")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6pr46"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8ff4"]
+content_margin_left = 40.0
+content_margin_top = 30.0
+content_margin_right = 40.0
+content_margin_bottom = 40.0
+texture = ExtResource("17_p2uwu")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_y8f2t"]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(0.54902, 0.764706, 0.768627, 1)
+Button/colors/font_outline_color = Color(0.176471, 0.215686, 0.270588, 1)
+Button/constants/outline_size = 15
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("19_altx3")
+Button/styles/disabled = SubResource("StyleBoxTexture_vpfsn")
+Button/styles/focus = SubResource("StyleBoxEmpty_6pr46")
+Button/styles/hover = SubResource("StyleBoxTexture_vpfsn")
+Button/styles/normal = SubResource("StyleBoxTexture_vpfsn")
+Button/styles/pressed = SubResource("StyleBoxTexture_a8ff4")
+
 [sub_resource type="LabelSettings" id="LabelSettings_nt2du"]
 font = ExtResource("19_altx3")
 font_size = 35
@@ -319,6 +359,13 @@ text = "Slash
 (damage = 50hp)"
 
 [node name="Heal" parent="ChooseAttackMenu/VBoxContainer" instance=ExtResource("21_tyn66")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+text = "Curarse
+(heal = 30hp)"
+
+[node name="Multiplier" parent="ChooseAttackMenu/VBoxContainer" instance=ExtResource("21_tyn66")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
@@ -503,6 +550,21 @@ shaked_node = NodePath("../SpritePivot")
 
 [node name="HealthChangeEffect" parent="Enemy" instance=ExtResource("29_vyk3c")]
 position = Vector2(1024, 498)
+
+[node name="Status" type="Button" parent="Enemy"]
+visible = false
+modulate = Color(0.79159, 0.346136, 0.47618, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1006.0
+offset_top = 331.0
+offset_right = 1086.0
+offset_bottom = 391.0
+grow_vertical = 0
+theme = SubResource("Theme_y8f2t")
 
 [node name="HelpButton" type="TextureButton" parent="."]
 unique_name_in_owner = true

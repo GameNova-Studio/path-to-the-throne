@@ -15,6 +15,13 @@ var current_health: int = 0
 @export var attack_power: int = 10
 @export var heal_power: int = 10
 
+## Se inicializa el multiplicador
+@export var multi_power: int = 1
+## Almacena el numero divisor (Afectado por el oponente)
+@export var divider_power: float = 1.0 
+## Reconoce si se ha usado el divider contra el oponente
+var divider_use: bool = false
+
 var already_attacked_this_turn: bool = false
 
 func _ready():
@@ -39,7 +46,13 @@ func _ready():
 
 func attack():
 	already_attacked_this_turn = true
-	opponent.be_hurted(attack_power)
+	## El ataque final se basa en el ataque, multiplier y divider
+	var final_attack = attack_power * multi_power * divider_power
+	opponent.be_hurted(final_attack)
+	## Luego del ataque el multiplicador y divider se resetan 
+	multi_power = 1
+	divider_power = 1.0
+	opponent.divider_use == false # se resetea el uso del divider enemigo
 
 
 func on_sprite_animation_hit_landed():
@@ -67,6 +80,13 @@ func heal():
 	current_health = move_toward(current_health, max_health, heal_power)
 	await combat_sprite.play_heal()
 
+## Ejecutamos la animación del multiplier
+func multiplier():
+	await combat_sprite.play_multiplier()
+
+func divider():
+	await opponent.combat_sprite.play_divider()
+	opponent.divider_power= 0.5 #El ataque del enemigo se reduce a la mitad
 
 func _process(delta):
 	health_bar.value = move_toward(health_bar.value, current_health, delta * 70.0)
