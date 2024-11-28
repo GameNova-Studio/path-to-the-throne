@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c48p45rn8dnhn"]
+[gd_scene load_steps=10 format=3 uid="uid://c48p45rn8dnhn"]
 
 [ext_resource type="Script" path="res://scenes/intro_scenes/intro_scene.gd" id="1_qgoi7"]
 [ext_resource type="PackedScene" uid="uid://dv2y18ye8j7o0" path="res://scenes/menus/main_menu/main_menu_scene.tscn" id="2_k28sd"]
+[ext_resource type="Texture2D" uid="uid://chegx4k22wxbp" path="res://scenes/intro_scenes/images/logo-celeste.png" id="3_8bkfa"]
 [ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="4_3pjjk"]
 [ext_resource type="Texture2D" uid="uid://cpofi8o2tycfj" path="res://scenes/intro_scenes/images/endless_logo.png" id="5_lng8p"]
 [ext_resource type="Texture2D" uid="uid://cpgbp7doe3g8v" path="res://scenes/intro_scenes/images/fannypack_logo.png" id="6_wnxx3"]
@@ -33,10 +34,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -182.0
-offset_top = -204.0
+offset_left = -188.0
+offset_top = -328.0
 offset_right = 182.0
-offset_bottom = -162.0
+offset_bottom = -251.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -47,8 +48,10 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-offset_right = 1200.0
-offset_bottom = 1024.0
+offset_left = 1.0
+offset_top = 199.0
+offset_right = 1201.0
+offset_bottom = 624.0
 
 [node name="Endless" type="VBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -96,12 +99,42 @@ label_settings = SubResource("LabelSettings_cbnh2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Utp" type="VBoxContainer" parent="VBoxContainer"]
+[node name="VBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 18.0
+offset_top = 543.0
+offset_right = 1200.0
+offset_bottom = 861.0
+
+[node name="GameNova" type="VBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 
-[node name="Logo" type="TextureRect" parent="VBoxContainer/Utp"]
+[node name="Logo" type="TextureRect" parent="VBoxContainer2/GameNova"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_8bkfa")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer2/GameNova"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_3pjjk")
+theme_override_font_sizes/font_size = 20
+text = "Game Nova Studio"
+label_settings = SubResource("LabelSettings_cbnh2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Utp" type="VBoxContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer2/Utp"]
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -110,7 +143,7 @@ texture = ExtResource("7_w7jic")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="VBoxContainer/Utp"]
+[node name="Label" type="Label" parent="VBoxContainer2/Utp"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_3pjjk")
 theme_override_font_sizes/font_size = 20
