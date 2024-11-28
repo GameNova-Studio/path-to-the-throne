@@ -30,7 +30,7 @@ const textures: Dictionary = {
 	Type.Hueso: preload("res://entities/items/textures/bone.png"),
 	Type.Oveja: preload("res://entities/items/textures/sheep.tres"),
 	Type.Tronco: preload("res://entities/items/textures/log.png"),
-	Type.Papiro: preload("res://entities/items/textures/papyrus2.png")
+	Type.Papiro: preload("res://entities/items/textures/papyrus.png")
 }
 
 ## Dado un [enum Item.Type], devuelve la [Texture2D] correspondiente.
