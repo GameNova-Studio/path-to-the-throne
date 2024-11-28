@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://ewf5cl8ycquv"]
 
 [ext_resource type="Script" path="res://entities/items/item.gd" id="1_oxhqq"]
-[ext_resource type="Texture2D" uid="uid://cg5b3nrtnj158" path="res://entities/items/textures/pumpkin.png" id="2_ia5fl"]
+[ext_resource type="Texture2D" uid="uid://fpmpmowvmstr" path="res://entities/items/textures/papyrus.png" id="2_nr0fj"]
 [ext_resource type="Texture2D" uid="uid://cnvs72kc0vx2k" path="res://assets/Tiny Swords/Resources/Sheep/HappySheep_Idle.png" id="3_1ucbp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifa6i"]
@@ -79,7 +79,7 @@ type = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
-texture = ExtResource("2_ia5fl")
+texture = ExtResource("2_nr0fj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_qmq30")
