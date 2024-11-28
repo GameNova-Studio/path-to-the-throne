@@ -3,12 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://4fa44mefgdnd" path="res://entities/characters/npcs/pawn/images/Pawn_Yellow.png" id="1_71t7x"]
 [ext_resource type="Script" path="res://entities/editor_only_node.gd" id="2_mde2j"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_an88d"]
 atlas = ExtResource("1_71t7x")
 region = Rect2(67, 69, 58, 59)
 
 [node name="Target" type="Sprite2D"]
+visible = false
 modulate = Color(0.18359, 0.18359, 0.18359, 1)
 position = Vector2(737, 19)
 scale = Vector2(2.5, 2.5)
