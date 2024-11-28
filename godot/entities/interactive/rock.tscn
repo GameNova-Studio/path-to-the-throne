@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ypha3eewhjgv"]
+[gd_scene load_steps=4 format=3 uid="uid://ypha3eewhjgv"]
 
 [ext_resource type="Script" path="res://entities/interactive/rock.gd" id="1_fcnut"]
 [ext_resource type="Texture2D" uid="uid://btjamv2p11hu7" path="res://entities/interactive/Rock.webp" id="4_7otrg"]
@@ -6,12 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vx5gy"]
 size = Vector2(64, 41)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csbm8"]
-size = Vector2(75, 58)
-
 [node name="RigidBody2D" type="RigidBody2D"]
-collision_layer = 5
-collision_mask = 5
+collision_layer = 8
+collision_mask = 9
 gravity_scale = 0.0
 lock_rotation = true
 script = ExtResource("1_fcnut")
@@ -23,9 +20,3 @@ texture = ExtResource("4_7otrg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_vx5gy")
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_csbm8")

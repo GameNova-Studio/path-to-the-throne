@@ -157,6 +157,7 @@ locale/translations_pot_files=PackedStringArray("res://addons/godot_tours/ui/ui_
 2d_physics/layer_1="player"
 2d_physics/layer_2="npc"
 2d_physics/layer_3="interactable"
+2d_physics/layer_4="rocks"
 2d_physics/layer_32="terrain"
 
 [rendering]
