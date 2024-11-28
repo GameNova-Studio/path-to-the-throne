@@ -79,6 +79,7 @@ type = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
+texture_filter = 1
 texture = ExtResource("2_nr0fj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
