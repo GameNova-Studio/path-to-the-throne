@@ -195,3 +195,33 @@ sprite_frames = ExtResource("8_6mf6n")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_1twqj")
 autoplay = true
+
+[node name="Label3" type="Label" parent="."]
+z_index = 10
+offset_left = 966.0
+offset_top = -110.0
+offset_right = 1374.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pbb0l")
+text = "Puedes correr más rapido 
+con Shift \"Intentalo\"
+
+"
+label_settings = SubResource("LabelSettings_fcvc0")
+horizontal_alignment = 1
+
+[node name="Shadow" type="Label" parent="Label3"]
+modulate = Color(0, 0, 0, 0.392157)
+z_as_relative = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 10.0
+offset_right = 429.0
+offset_bottom = 197.0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pbb0l")
+text = "Puedes correr más rapido 
+con Shift \"Intentalo\"
+
+"
+label_settings = SubResource("LabelSettings_fcvc0")
+horizontal_alignment = 1
