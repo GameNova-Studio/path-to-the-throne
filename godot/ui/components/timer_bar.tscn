@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctrpp1le7v7sq"]
+
+[ext_resource type="Texture2D" uid="uid://buwv2e1xov38d" path="res://assets/Tiny Swords/UI/Buttons/Button_Red_3Slides.png" id="1_fnw61"]
+[ext_resource type="FontFile" uid="uid://le2vdo2626vw" path="res://assets/fonts/Montserrat-Medium.ttf" id="3_u27k8"]
+[ext_resource type="Script" path="res://ui/components/timer_bar.gd" id="4_5hr73"]
+[ext_resource type="AudioStream" uid="uid://cudn4qep5il7x" path="res://assets/sounds/476177__unadamlar__wrong-choice.wav" id="4_cbva6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_go1ko"]
+
+[sub_resource type="Theme" id="Theme_pamuc"]
+Label/colors/font_outline_color = Color(0.176471, 0.215686, 0.270588, 1)
+Label/colors/font_shadow_color = Color(0, 0, 0, 0)
+Label/constants/line_spacing = 3
+Label/constants/outline_size = 10
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/constants/shadow_outline_size = 1
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("3_u27k8")
+Label/styles/normal = SubResource("StyleBoxEmpty_go1ko")
+
+[node name="TimerBar" type="TextureRect"]
+self_modulate = Color(0.47, 0.438667, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1136.0
+offset_bottom = -848.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+texture = ExtResource("1_fnw61")
+stretch_mode = 2
+script = ExtResource("4_5hr73")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.9
+one_shot = true
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -24.0
+offset_right = 10.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_pamuc")
+text = "0"
+horizontal_alignment = 1
+
+[node name="Timeout_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_cbva6")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
