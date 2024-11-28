@@ -202,8 +202,7 @@ next_scene = "res://scenes/levels/story_mode/level_credits/level_credits.tscn"
 
 [node name="Talker" parent="." instance=ExtResource("3_xsoqf")]
 position = Vector2(1575, 2020)
-line = "Well done Arturo! We have been expecting you. Now you are king of england!
-Congratulations!"
+line = "Well done, Arturo! There is a great adventure waiting for you at the river, so keep moving forward!."
 npc_name = "Oscar"
 sprite_frames = ExtResource("12_dquyo")
 
