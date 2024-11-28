@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://entities/prefabs/npcs/fighter/fighter_with_reward.gd" id="16_67vsl"]
 [ext_resource type="PackedScene" uid="uid://c7ottki5juh0e" path="res://entities/trees/tree.tscn" id="20_kiqjn"]
 [ext_resource type="PackedScene" uid="uid://syc3gtucf4yi" path="res://entities/trees/tree_chopped.tscn" id="21_ut7sm"]
-[ext_resource type="PackedScene" uid="uid://dml6o5y7r3y37" path="res://entities/characters/npcs/pawn/pawn_cut.tscn" id="21_ywgm4"]
+[ext_resource type="PackedScene" path="res://entities/characters/npcs/pawn/pawn_cut.tscn" id="21_ywgm4"]
 [ext_resource type="AudioStream" uid="uid://djgjy61njk6ve" path="res://assets/sounds/641933__kbrecordzz__victorian-family-sheep-song.mp3" id="23_jilup"]
 [ext_resource type="AudioStream" uid="uid://cycr0q7qtb83d" path="res://assets/sounds/578072__ramonmineiro__medieval_village_atmosphere.wav" id="24_fprs8"]
 
