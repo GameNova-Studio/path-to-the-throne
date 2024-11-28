@@ -153,12 +153,15 @@ type = 0
 
 [node name="Item4" parent="Items" instance=ExtResource("10_f82q6")]
 position = Vector2(1318, 760)
+type = 3
 
 [node name="Item5" parent="Items" instance=ExtResource("10_f82q6")]
 position = Vector2(1416, 826)
+type = 3
 
 [node name="Item6" parent="Items" instance=ExtResource("10_f82q6")]
 position = Vector2(1314, 871)
+type = 3
 
 [node name="Item7" parent="Items" instance=ExtResource("10_f82q6")]
 position = Vector2(744, 1160)
