@@ -253,8 +253,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2mq25")
 help_message_player_turn = "Durante tu turno, puedes elegir entre uno de dos ataques o curarte.
-Los tres números se calculan aleatoriamente cada turno entre 1 y 100, lee las opciones y elige la que te parezca más adecuada."
-help_message_enemy_turn = "Durante el turno de tu oponente, debes elegir la respuesta correcta o serás atacado."
+Los tres números se calculan aleatoriamente cada turno entre 1 y 100, lee las opciones y elige la que te parezca más adecuada.
+No olvides que con la tecla X puedes salir del combate en cualquier momento."
+help_message_enemy_turn = "Durante el turno de tu oponente, debes elegir la respuesta correcta o serás atacado.
+"
 
 [node name="MenuTurnAnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
