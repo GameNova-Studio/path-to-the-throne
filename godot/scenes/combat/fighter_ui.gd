@@ -27,15 +27,15 @@ var already_attacked_this_turn: bool = false
 func _ready():
 	if(not combat_sprite):
 		combat_sprite = $SpritePivot/Sprite
-	##Se verifica si se trata del jugador para recordar su vida
-	if(is_player):
-		##Si la variable health no tiene valor, se le asignará el valor máximo de vida
-		if not PlayerStats.health:
+	## Se verifica si se trata del jugador
+	if is_player:
+		## Si la vida no está inicializada, adquiere el valor máximo
+		if not PlayerStatus.health:
 			current_health=max_health
-		##Si health ya tiene un valor (ya combatió), se utiliza los hp almacenados 
+				## Si ya existe un valor, se mantiene
 		else:
-			current_health = PlayerStats.health
-	##En caso no sea el jugador, la vida será la cantidad máxima
+			current_health = PlayerStatus.health
+	## Si es enemigo, el valor de la vida será el máximo
 	else:
 		current_health = max_health
 		

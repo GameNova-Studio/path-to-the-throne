@@ -83,8 +83,8 @@ func play_turns() -> void:
 	elif player.current_health <= 0:
 		await wait_seconds(1.0)
 		finished.emit(Outcome.PlayerLost)
-	##Se guarda la vida del jugador al finalizar el combate
-	PlayerStats.update_health(player.current_health)
+	##Se actualiza la vida del jugador al terminar el combate
+	PlayerStatus.update_health(player.current_health)
 
 ## Mostrar el diálogo de ayuda que explica que hacer. Cambia el texto según
 ## si se está en el turno del jugador o del oponente.
