@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://ck5kgbe0nydo1"]
+[gd_scene load_steps=23 format=4 uid="uid://ck5kgbe0nydo1"]
 
 [ext_resource type="TileSet" uid="uid://bmdxvmqreuxe6" path="res://assets/terrain/tilesets/tileset.tres" id="1_asinb"]
 [ext_resource type="Texture2D" uid="uid://d0010yeg6lihp" path="res://assets/terrain/tilesets/images/Ground/Tilemap_Elevation.png" id="2_mbnae"]
@@ -7,16 +7,31 @@
 [ext_resource type="PackedScene" uid="uid://mndsxueepdkr" path="res://entities/prefabs/npcs/talker/talker.tscn" id="4_gycj1"]
 [ext_resource type="PackedScene" uid="uid://whfe031ftcip" path="res://entities/prefabs/npcs/fighter/fighter_with_reward.tscn" id="5_lpw78"]
 [ext_resource type="Resource" uid="uid://cgdm8w7oy2jyl" path="res://scenes/combat/in_combat_characters/fighter_characters/purple_archer.tres" id="6_bu7w2"]
-[ext_resource type="Resource" uid="uid://ct024eee8owir" path="res://scenes/combat/in_combat_characters/fighter_characters/red_goblin.tres" id="7_t771f"]
-[ext_resource type="SpriteFrames" uid="uid://dnm04pi7yfmju" path="res://entities/characters/npcs/goblin/animations/goblin_red.tres" id="8_niay0"]
 [ext_resource type="PackedScene" uid="uid://cphykiupy8lbk" path="res://entities/prefabs/npcs/guard/guard.tscn" id="9_m8grp"]
+[ext_resource type="PackedScene" uid="uid://dbbea8dbdiuvr" path="res://entities/prefabs/npcs/fighter/fighter.tscn" id="10_3tn5y"]
+[ext_resource type="Script" path="res://scenes/combat/minigames/minigame.gd" id="11_d5426"]
 [ext_resource type="PackedScene" uid="uid://b6j76ro0xvs0g" path="res://entities/door/door.tscn" id="11_rylbh"]
+[ext_resource type="Script" path="res://scenes/combat/minigames/pick_any_minigame_at_random.gd" id="12_4t78a"]
 [ext_resource type="PackedScene" uid="uid://ypha3eewhjgv" path="res://entities/interactive/rock.tscn" id="12_fwhpi"]
 [ext_resource type="AudioStream" uid="uid://8mahfo8ru4xc" path="res://assets/sounds/553821__ekvelika__chonology-of-love.wav" id="13_042ar"]
+[ext_resource type="Script" path="res://scenes/combat/in_combat_characters/fighter_character.gd" id="13_dk7d7"]
 [ext_resource type="PackedScene" uid="uid://d1eeuckh66bv7" path="res://entities/interactive/pine_tree.tscn" id="14_87k67"]
+[ext_resource type="SpriteFrames" uid="uid://c0qeevigwncec" path="res://entities/characters/npcs/goblin/animations/goblin_yellow.tres" id="14_ujsb3"]
 [ext_resource type="Texture2D" uid="uid://bahhvjtcpns5i" path="res://assets/Tiny Swords/Factions/Knights/Troops/Dead/Dead.png" id="16_w3ev0"]
 [ext_resource type="Texture2D" uid="uid://bl1soqlpwfx3g" path="res://assets/terrain/tilesets/images/Bridge/Bridge_All.png" id="17_wfuyd"]
 [ext_resource type="PackedScene" uid="uid://c7ottki5juh0e" path="res://entities/trees/tree.tscn" id="18_2xou4"]
+
+[sub_resource type="Resource" id="Resource_egswk"]
+script = ExtResource("12_4t78a")
+minigames_path = "res://scenes/combat/minigames"
+
+[sub_resource type="Resource" id="Resource_oksdq"]
+resource_local_to_scene = true
+script = ExtResource("13_dk7d7")
+hp = 200
+attack_power = 75
+_combat_sprite = "res://scenes/combat/in_combat_characters/combat_sprites/archer/archer_combat_sprite.tscn"
+minigames = Array[ExtResource("11_d5426")]([SubResource("Resource_egswk")])
 
 [node name="Valle de la Perseverancia" type="Node2D"]
 y_sort_enabled = true
@@ -44,7 +59,7 @@ tile_set = ExtResource("1_asinb")
 z_index = 1
 y_sort_enabled = true
 position = Vector2(48, 56)
-tile_map_data = PackedByteArray("AAD7/wwAHgACAAEAAAD9//r/HgACAAEAAAACAA4AHgADAAEAAAADAAsAHgABAAEAAAAWABcACQAAAAMAAAAaABAACQAAAAMAAAAXAA0ACQAAAAMAAAALAAkACQAAAAEAAAD8//r/HgADAAMAAAAEABgACQAAAAIAAAAKABkACQAAAAIAAAAHAAkAHgABAAMAAAAHAAQAHgABAAMAAAAQAA0AFAAAAAAAAAAOABEAHgADAAMAAAAFABUAHgACAAEAAAD4/w8AHgABAAEAAAARAA0AHgAAAAEAAAAPAA0AHgAAAAEAAAACABYAHgACAAEAAAAAABMAHgABAAEAAAAbAAIAHgADAAAAAAAVAAMAHgABAAEAAAAhAAUAHgABAAEAAAAZAAUAHgABAAEAAAAEAAUAHgABAAEAAAABAAcAHgACAAEAAAD9/wUAHgABAAEAAAAIAPr/HgACAAEAAAAFAPn/HgAAAAEAAAACAPr/HgABAAEAAAAmAP7/HgACAAEAAAAkAAAAHgABAAEAAAAlABcACQAAAAMAAQAdABUACQAAAAIAAQD7/xcACQAAAAAAAQD5/xMACQAAAAIAAQAjAA8ACQAAAAMAAQAdAA0ACQAAAAEAAQAnAAsACQAAAAIAAQAeAAsACQAAAAMAAQAUABIACQAAAAIAAQAPAAQACQAAAAIAAQALAAQACQAAAAEAAQANAAoACQAAAAMAAQATAAsACQAAAAEAAQAQAPn/HgABAAEAAAALAAEAHgABAAEAAAAKAAAAHgAAAAEAAAASAPr/HgAAAAEAAAAPAP//HgAAAAEAAAALAPz/HgAAAAEAAAAVAPz/HgAAAAEAAAAGAP3/HgAAAAEAAAD///z/HgAAAAEAAAAgAAgAHgABAAEAAAAXAPb/CgABAAAAAAAXAPf/CgABAAEAAAAXAPj/CgABAAIAAAAYAPb/CgACAAAAAAAYAPf/CgACAAEAAAAYAPj/CgACAAIAAAAaAPb/CgABAAAAAAAaAPf/CgABAAEAAAAaAPj/CgABAAIAAAAbAPb/CgACAAAAAAAbAPf/CgACAAEAAAAbAPj/CgACAAIAAAAjAPb/CgABAAAAAAAjAPf/CgABAAEAAAAjAPj/CgABAAIAAAAkAPb/CgACAAAAAAAkAPf/CgACAAEAAAAkAPj/CgACAAIAAAAgAPb/CgABAAAAAAAgAPf/CgABAAEAAAAgAPj/CgABAAIAAAAhAPb/CgACAAAAAAAhAPf/CgACAAEAAAAhAPj/CgACAAIAAAAdAPb/CgABAAAAAAAdAPf/CgABAAEAAAAdAPj/CgABAAIAAAAeAPb/CgACAAAAAAAeAPf/CgACAAEAAAAeAPj/CgACAAIAAAD5//n/CgABAAAAAAD5//r/CgABAAEAAAD5//v/CgABAAIAAAD6//n/CgACAAAAAAD6//r/CgACAAEAAAD6//v/CgACAAIAAAD5//z/CgABAAAAAAD5//3/CgABAAEAAAD5//7/CgABAAIAAAD6//z/CgACAAAAAAD6//3/CgACAAEAAAD6//7/CgACAAIAAAD5////CgABAAAAAAD5/wAACgABAAEAAAD5/wEACgABAAIAAAD6////CgACAAAAAAD6/wAACgACAAEAAAD6/wEACgACAAIAAAAAAPn/CgABAAAAAAAAAPr/CgABAAEAAAAAAPv/CgABAAIAAAABAPn/CgACAAAAAAABAPr/CgACAAEAAAABAPv/CgACAAIAAAADAPn/CgABAAAAAAADAPr/CgABAAEAAAADAPv/CgABAAIAAAAEAPn/CgACAAAAAAAEAPr/CgACAAEAAAAEAPv/CgACAAIAAAAGAPn/CgABAAAAAAAGAPr/CgABAAEAAAAGAPv/CgABAAIAAAAHAPn/CgACAAAAAAAHAPr/CgACAAEAAAAHAPv/CgACAAIAAAADAP//CgABAAAAAAADAAAACgABAAEAAAADAAEACgABAAIAAAAEAP//CgACAAAAAAAEAAAACgACAAEAAAAEAAEACgACAAIAAAAGAP//CgABAAAAAAAGAAAACgABAAEAAAAGAAEACgABAAIAAAAHAP//CgACAAAAAAAHAAAACgACAAEAAAAHAAEACgACAAIAAAAAABAACgABAAAAAAAAABEACgABAAEAAAAAABIACgABAAIAAAABABAACgACAAAAAAABABEACgACAAEAAAABABIACgACAAIAAAACABMAHgADAAAAAAADAA8AHgADAAAAAAAAAA0AHgADAAAAAAD8/w8AHgADAAAAAAANAPr/HgADAAMAAAA=")
+tile_map_data = PackedByteArray("AAD7/wwAHgACAAEAAAD9//r/HgACAAEAAAACAA4AHgADAAEAAAADAAsAHgABAAEAAAAWABcACQAAAAMAAAAaABAACQAAAAMAAAAXAA0ACQAAAAMAAAALAAkACQAAAAEAAAD8//r/HgADAAMAAAAEABgACQAAAAIAAAAKABkACQAAAAIAAAAHAAkAHgABAAMAAAAHAAQAHgABAAMAAAAQAA0AFAAAAAAAAAAOABEAHgADAAMAAAAFABUAHgACAAEAAAD4/w8AHgABAAEAAAARAA0AHgAAAAEAAAAPAA0AHgAAAAEAAAACABYAHgACAAEAAAAAABMAHgABAAEAAAAbAAIAHgADAAAAAAAVAAMAHgABAAEAAAAhAAUAHgABAAEAAAAZAAUAHgABAAEAAAAEAAUAHgABAAEAAAABAAcAHgACAAEAAAD9/wUAHgABAAEAAAAIAPr/HgACAAEAAAAFAPn/HgAAAAEAAAACAPr/HgABAAEAAAAmAP7/HgACAAEAAAAkAAAAHgABAAEAAAAlABcACQAAAAMAAQAdABUACQAAAAIAAQD7/xcACQAAAAAAAQD5/xMACQAAAAIAAQAjAA8ACQAAAAMAAQAdAA0ACQAAAAEAAQAnAAsACQAAAAIAAQAeAAsACQAAAAMAAQAUABIACQAAAAIAAQAPAAQACQAAAAIAAQALAAQACQAAAAEAAQANAAoACQAAAAMAAQATAAsACQAAAAEAAQAQAPn/HgABAAEAAAALAAEAHgABAAEAAAAKAAAAHgAAAAEAAAASAPr/HgAAAAEAAAAPAP//HgAAAAEAAAALAPz/HgAAAAEAAAAVAPz/HgAAAAEAAAAGAP3/HgAAAAEAAAD///z/HgAAAAEAAAAgAAgAHgABAAEAAAAXAPb/AAABAAAAAAAXAPf/AAABAAEAAAAXAPj/AAABAAIAAAAYAPb/AAACAAAAAAAYAPf/AAACAAEAAAAYAPj/AAACAAIAAAAaAPb/AAABAAAAAAAaAPf/AAABAAEAAAAaAPj/AAABAAIAAAAbAPb/AAACAAAAAAAbAPf/AAACAAEAAAAbAPj/AAACAAIAAAAjAPb/AAABAAAAAAAjAPf/AAABAAEAAAAjAPj/AAABAAIAAAAkAPb/AAACAAAAAAAkAPf/AAACAAEAAAAkAPj/AAACAAIAAAAgAPb/AAABAAAAAAAgAPf/AAABAAEAAAAgAPj/AAABAAIAAAAhAPb/AAACAAAAAAAhAPf/AAACAAEAAAAhAPj/AAACAAIAAAAdAPb/AAABAAAAAAAdAPf/AAABAAEAAAAdAPj/AAABAAIAAAAeAPb/AAACAAAAAAAeAPf/AAACAAEAAAAeAPj/AAACAAIAAAD5//n/AAABAAAAAAD5//r/AAABAAEAAAD5//v/AAABAAIAAAD6//n/AAACAAAAAAD6//r/AAACAAEAAAD6//v/AAACAAIAAAD5//z/AAABAAAAAAD5//3/AAABAAEAAAD5//7/AAABAAIAAAD6//z/AAACAAAAAAD6//3/AAACAAEAAAD6//7/AAACAAIAAAD5////AAABAAAAAAD5/wAAAAABAAEAAAD5/wEAAAABAAIAAAD6////AAACAAAAAAD6/wAAAAACAAEAAAD6/wEAAAACAAIAAAAAAPn/AAABAAAAAAAAAPr/AAABAAEAAAAAAPv/AAABAAIAAAABAPn/AAACAAAAAAABAPr/AAACAAEAAAABAPv/AAACAAIAAAADAPn/AAABAAAAAAADAPr/AAABAAEAAAADAPv/AAABAAIAAAAEAPn/AAACAAAAAAAEAPr/AAACAAEAAAAEAPv/AAACAAIAAAAGAPn/AAABAAAAAAAGAPr/AAABAAEAAAAGAPv/AAABAAIAAAAHAPn/AAACAAAAAAAHAPr/AAACAAEAAAAHAPv/AAACAAIAAAADAP//AAABAAAAAAADAAAAAAABAAEAAAADAAEAAAABAAIAAAAEAP//AAACAAAAAAAEAAAAAAACAAEAAAAEAAEAAAACAAIAAAAGAP//AAABAAAAAAAGAAAAAAABAAEAAAAGAAEAAAABAAIAAAAHAP//AAACAAAAAAAHAAAAAAACAAEAAAAHAAEAAAACAAIAAAAAABAAAAABAAAAAAAAABEAAAABAAEAAAAAABIAAAABAAIAAAABABAAAAACAAAAAAABABEAAAACAAEAAAABABIAAAACAAIAAAACABMAHgADAAAAAAADAA8AHgADAAAAAAAAAA0AHgADAAAAAAD8/w8AHgADAAAAAAANAPr/HgADAAMAAAA=")
 tile_set = ExtResource("1_asinb")
 
 [node name="Elevación" type="Node2D" parent="."]
@@ -831,7 +846,7 @@ type = 2
 
 [node name="Item23" parent="Items" instance=ExtResource("3_e7ni6")]
 position = Vector2(407, 387)
-type = 3
+type = 1
 
 [node name="Item24" parent="Items" instance=ExtResource("3_e7ni6")]
 position = Vector2(204, 1572)
@@ -859,6 +874,7 @@ position = Vector2(592, 744)
 
 [node name="Item27" parent="Items" instance=ExtResource("3_e7ni6")]
 position = Vector2(1272, 504)
+type = 7
 
 [node name="Item28" parent="Items" instance=ExtResource("3_e7ni6")]
 position = Vector2(1496, 488)
@@ -895,56 +911,52 @@ position = Vector2(992, 512)
 line = "Those rocks are too heavy to [hint=’levantar’]lift[/hint] them! But maybe you are [hint=’fuerte’]strong[/hint] enough to push them out of the way!"
 npc_name = "Peter the Peasant"
 
-[node name="Fighter" parent="Npcs" instance=ExtResource("5_lpw78")]
-z_index = 1
-position = Vector2(2856, 760)
-line = "If you want a pumpkin you will have to fight me!
-"
-line_when_player_won = "You won, take your pumpkin!"
-line_when_player_lost = "haha! Get away from here!"
-in_combat_character = ExtResource("6_bu7w2")
-npc_name = "Harper the Farmer"
-
 [node name="Fighter2" parent="Npcs" instance=ExtResource("5_lpw78")]
 z_index = 1
 position = Vector2(2128, 864)
-line = "You need to be prepared for bigger things, fight with me!"
-line_when_player_won = "You are strong. Here’s some gold!"
-line_when_player_lost = "Did you really think you could [hint=\"Derrotarme\"]beat me[/hint]?"
+line = "Do you need a papyrus [hint=’pergamino’]scroll[/hint]? I can give you one… Only if you can defeat me!"
+line_when_player_won = "A promise is a promise, here is your papyrus"
+line_when_player_lost = "No papyrus for you"
 in_combat_character = ExtResource("6_bu7w2")
-reward_item = 2
-npc_name = "Randy the Bandit: "
-
-[node name="Fighter3" parent="Npcs" instance=ExtResource("5_lpw78")]
-z_index = 1
-position = Vector2(2408, 744)
-line = "Time to test your [hint=\"Habilidades\"]skills[/hint]! Fight me, if you dare!"
-line_when_player_won = "Impressive! Here’s some gold, you’ve earned it."
-line_when_player_lost = "Ha! Was that all? You’ve [hint=\"Desperdicié\"]wasted[/hint] my time."
-in_combat_character = ExtResource("7_t771f")
-reward_item = 2
-npc_name = "Gunther the Archer"
-sprite_frames = ExtResource("8_niay0")
+reward_item = 7
+npc_name = "Rob the Rogue:"
 
 [node name="Guard4" parent="Npcs" instance=ExtResource("9_m8grp")]
 z_index = 1
 position = Vector2(2632, 928)
-npc_name = "Oliver the Soldier"
-item_i_need = 6
+npc_name = "Virgil the Vigilant"
+item_i_need = 7
 direction_i_move_to = 3
-thank_you_line = "Good [hint=\"Trabajo\"]job[/hint]. You’re free to go!"
+thank_you_line = "Want to go to the mountain? Sure! But I’m needing a papyrus. If you want to go further you will have to bring me one. "
 request_item_line = "You can’t go any [hint=\"adelante\"]further[/hint] unless you bring me a log
 "
 
 [node name="Guard3" parent="Npcs" instance=ExtResource("9_m8grp")]
 z_index = 1
 position = Vector2(712, 952)
-npc_name = "Oliver the Soldier"
+npc_name = "Scott the Pilgrim"
 item_i_need = 6
 direction_i_move_to = 3
-thank_you_line = "Good [hint=\"Trabajo\"]job[/hint]. You’re free to go!"
+thank_you_line = "Ugh, I came here to cut some wood, but I forgot my [hint=’hacha’]axe[/hint] at home. Can you [hint=’traer’]bring[/hint] me some wood?, please."
 request_item_line = "You can’t go any [hint=\"adelante\"]further[/hint] unless you bring me a log
 "
+
+[node name="Fighter" parent="Npcs" instance=ExtResource("10_3tn5y")]
+position = Vector2(2408, 760)
+line = "My friends right there are pretty strong and I can [hint=derrotar]defeat[/hint] them! But you look weak [hint=’suficiente’]enough[/hint] for me to defeat you."
+line_when_player_won = "Okay, you’re stronger than I thought!"
+line_when_player_lost = "Haha, I finally defeated someone!"
+in_combat_character = SubResource("Resource_oksdq")
+npc_name = "Clair the Cleric"
+
+[node name="Fighter3" parent="Npcs" instance=ExtResource("10_3tn5y")]
+position = Vector2(2864, 760)
+line = "Do you think you are ready to [hint=’encarar]face[/hint] the mountain? Face me, then!"
+line_when_player_won = "You are more than ready"
+line_when_player_lost = "You are not ready yet!"
+in_combat_character = SubResource("Resource_oksdq")
+npc_name = "Nate the Knight"
+sprite_frames = ExtResource("14_ujsb3")
 
 [node name="Cueva" parent="." instance=ExtResource("11_rylbh")]
 position = Vector2(2640, 396)
