@@ -1,7 +1,27 @@
-[gd_resource type="SpriteFrames" load_steps=51 format=3 uid="uid://cs48ij7e2fsy7"]
+[gd_resource type="SpriteFrames" load_steps=56 format=3 uid="uid://cs48ij7e2fsy7"]
 
 [ext_resource type="Texture2D" uid="uid://32emst0ctttf" path="res://entities/characters/player/Warrior_Blue.png" id="1_pobvo"]
 [ext_resource type="Texture2D" uid="uid://b3pmtodft1dlv" path="res://assets/Tiny Swords/Effects/Explosion/Explosions.png" id="2_fqr0f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lvvl"]
+atlas = ExtResource("1_pobvo")
+region = Rect2(576, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1wvo"]
+atlas = ExtResource("1_pobvo")
+region = Rect2(768, 0, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olnsx"]
+atlas = ExtResource("1_pobvo")
+region = Rect2(0, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ojg52"]
+atlas = ExtResource("1_pobvo")
+region = Rect2(192, 384, 192, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y14lp"]
+atlas = ExtResource("1_pobvo")
+region = Rect2(384, 384, 192, 192)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ofsr6"]
 atlas = ExtResource("1_pobvo")
@@ -197,6 +217,26 @@ region = Rect2(960, 192, 192, 192)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1wvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olnsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ojg52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y14lp")
+}],
+"loop": true,
+"name": &"Hurt_player",
+"speed": 11.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ofsr6")
